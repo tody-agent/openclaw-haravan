@@ -7,10 +7,15 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "vitest run",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs"
+    "test:gate": "npm run build --workspaces --if-present && npm run docs:build && vitest run --reporter=verbose",
+    "security:scan": "node scripts/security-scan.mjs",
+    "verify": "npm run security:scan && npm run test:gate",
+    "docs:dev": "npx vitepress dev docs",
+    "docs:build": "npx vitepress build docs"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.27.7",
     "typescript": "^5.3.3",
     "vitest": "^4.1.2",
     "vitepress": "^1.6.4"
