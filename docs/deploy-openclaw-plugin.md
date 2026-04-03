@@ -108,6 +108,17 @@ Thời gian merge PR phụ thuộc maintainer; **plugin vẫn dùng được nga
 
 ---
 
+## GitHub Pages (site tài liệu)
+
+Workflow **Deploy docs** build VitePress mỗi lần push `main`. Bước publish lên Pages **chỉ chạy** khi:
+
+1. **Settings → Pages** của repo: nguồn **GitHub Actions** (không dùng branch `gh-pages` trừ khi bạn tự cấu hình khác).
+2. **Settings → Secrets and variables → Actions → Variables**: tạo biến repository `ENABLE_GH_PAGES_DEPLOY` = `true`.
+
+Nếu chưa bật Pages hoặc chưa đặt biến, job `build` vẫn chạy (kiểm tra site build được); job `deploy` được bỏ qua để workflow không báo lỗi giả. Sau khi cấu hình xong, chạy lại workflow (hoặc push commit) để deploy.
+
+---
+
 ## Checklist nhanh
 
 - [ ] Build toàn monorepo: `npm run build`

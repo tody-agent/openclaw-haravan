@@ -10,6 +10,7 @@
     "test:gate": "npm run build --workspaces --if-present && npm run docs:build && vitest run --reporter=verbose",
     "security:scan": "node scripts/security-scan.mjs",
     "verify": "npm run security:scan && npm run test:gate",
+    "hooks:install": "git config core.hooksPath .githooks",
     "docs:dev": "npx vitepress dev docs",
     "docs:build": "npx vitepress build docs"
   },

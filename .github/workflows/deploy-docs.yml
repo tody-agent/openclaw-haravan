@@ -1,4 +1,5 @@
-# Build VitePress site and deploy to GitHub Pages (project site: /REPO_NAME/)
+# Build VitePress site and deploy to GitHub Pages (project site: /REPO_NAME/).
+# Deploy job runs only when repo variable ENABLE_GH_PAGES_DEPLOY == true (after Pages is enabled).
 name: Deploy docs
 
 on:
@@ -40,6 +41,7 @@ jobs:
 
   deploy:
     needs: build
+    if: ${{ vars.ENABLE_GH_PAGES_DEPLOY == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
