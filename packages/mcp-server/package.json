@@ -24,7 +24,7 @@
     "verify": "npm run test:gate"
   },
   "dependencies": {
-    "@haravan-master/core": "file:../../../haravan-core",
+    "@haravan-master/core": "*",
     "@modelcontextprotocol/sdk": "^1.6.1"
   },
   "devDependencies": {

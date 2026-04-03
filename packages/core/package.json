@@ -1,0 +1,19 @@
+{
+  "name": "@haravan-master/core",
+  "version": "1.0.0",
+  "description": "Haravan REST API client with rate-limit shield and typed resources.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepack": "npm run build",
+    "test": "vitest run"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.0.0",
+    "vitest": "^4.1.2"
+  }
+}
