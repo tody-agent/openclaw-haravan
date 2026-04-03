@@ -1,0 +1,3 @@
+# Copy to .dev.vars (not committed) for local MCP / tooling.
+# HARAVAN_SHOP=your-shop.myharavan.com
+# HARAVAN_TOKEN=your-private-app-token

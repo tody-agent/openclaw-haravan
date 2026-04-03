@@ -17,6 +17,15 @@
 ## Skills
 - `skills/openclaw-haravan-ops/SKILL.md` — Main operations skill with routing table
 
+## CI / test gate
+
+- **Full verify (local):** `npm run verify` — `security:scan` + `test:gate` (workspace build, VitePress build, Vitest including repo hygiene tests).
+- **Test gate only:** `npm run test:gate`
+- **Install git hooks (once per clone):** `npm run hooks:install` — sets `core.hooksPath` to `.githooks`. Pre-commit runs [gitleaks](https://github.com/gitleaks/gitleaks) on staged files when `gitleaks` is on `PATH`; otherwise it prints a skip message.
+- **Secrets:** never commit `.env` / `.dev.vars`; copy [`.dev.vars.example`](.dev.vars.example) to `.dev.vars` locally. CI uses `gitleaks/gitleaks-action` + `security:scan`.
+
+**Maintainer (GitHub):** In *Settings → Branches*, consider requiring the **CI / `verify`** check before merge to `main` once the workflow has run at least once on the default branch.
+
 ## Quick Test
 ```bash
 export HARAVAN_SHOP="your-shop.myharavan.com"

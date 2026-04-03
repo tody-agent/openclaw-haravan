@@ -105,6 +105,16 @@ npm run build --workspace @haravan-master/openclaw-haravan-ops-mcp
 npm run doctor-openclaw
 ```
 
+### Sửa code / mở PR (contributor)
+
+Trước khi push hoặc mở pull request vào repo này:
+
+```bash
+npm run verify
+```
+
+(Lệnh trên chạy quét bảo mật nhẹ + build toàn monorepo + build VitePress + Vitest — trùng với job CI trên GitHub.)
+
 Nếu team bạn muốn bản đóng gói offline, xem [Gói IT](/goi-phan-phoi-cuc-bo).
 
 ## Liên kết

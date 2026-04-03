@@ -68,10 +68,20 @@ export async function callLeanTool(
 1. **MCP:** Process đọc env → `new Haravan({ shopDomain, accessToken })` → `callLeanTool(name, args, haravan)`.
 2. **Plugin:** `api.pluginConfig` → cùng `Haravan` → cùng `callLeanTool`.
 
-## Kiểm thử
+## Kiểm thử & CI
 
-- Vitest workspace: `packages/haravan-ops-dispatch/test`, `packages/mcp-server/test`, `packages/core/test`.
-- Lệnh: `npm test` tại root (sau `npm run build` nếu cần resolve workspace).
+| Lệnh (root) | Mục đích |
+|-------------|----------|
+| `npm test` | Vitest toàn repo (không bắt buộc build docs trước; test `docs-dist` bị skip nếu chưa có `docs/.vitepress/dist`). |
+| `npm run test:gate` | Build mọi workspace + `vitepress build docs` + Vitest verbose — **chuẩn trước merge**. |
+| `npm run security:scan` | Quét pattern nhạy cảm trong mã nguồn (`scripts/security-scan.mjs`, bỏ qua `docs/`). |
+| `npm run verify` | `security:scan` rồi `test:gate`. |
+
+**GitHub Actions:** workflow [`.github/workflows/ci.yml`](https://github.com/tody-agent/openclaw-haravan/blob/main/.github/workflows/ci.yml) (trên PR và push `main`): `npm ci` → security scan → Gitleaks → `npm audit --audit-level=high` → `test:gate`. Deploy docs riêng: [`.github/workflows/deploy-docs.yml`](https://github.com/tody-agent/openclaw-haravan/blob/main/.github/workflows/deploy-docs.yml).
+
+**Hook local (tuỳ chọn):** `npm run hooks:install` rồi cài gitleaks — xem [AGENTS.md](https://github.com/tody-agent/openclaw-haravan/blob/main/AGENTS.md).
+
+Cấu trúc test: `test/` (gate repo + docs dist), `packages/core/test`, `packages/haravan-ops-dispatch/test`, `packages/mcp-server/test`.
 
 ## Tài liệu liên quan
 

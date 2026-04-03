@@ -25,6 +25,8 @@ Docs landing + kỹ thuật đã có; **bật GitHub Pages** trên remote và me
 
 ## Just completed
 
+- **CI / test gate:** `npm run verify`, `test:gate`, `security:scan`, `.github/workflows/ci.yml`, Gitleaks, root `test/*`, `scripts/security-scan.mjs`, `.gitleaks.toml`, `.githooks/pre-commit`, `hooks:install`.
+- Docs: `architecture.md` (mục kiểm thử), `README.vi.md` + `cai-dat-va-thiet-lap.md` (contributor), PR template.
 - Landing mở rộng + SEO `head` + features.
 - Sửa dead links toàn `docs/`, thêm `playbook-ideas.md`.
 - `config.mts` nav/sidebar, `cleanUrls`, footer.

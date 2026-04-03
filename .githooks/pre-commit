@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+echo "Secret Shield: scanning staged changes..."
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --pre-commit --staged --verbose
+  echo "gitleaks: ok"
+else
+  echo "gitleaks not installed — running npm run security:scan (whole repo)"
+  npm run security:scan
+fi

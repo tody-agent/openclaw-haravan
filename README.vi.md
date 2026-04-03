@@ -1,116 +1,125 @@
-# OpenClaw x Haravan
+# OpenClaw × Haravan — vận hành shop bằng lời nói
 
-> **README tiếng Việt** — bản mặc định cho cộng đồng quốc tế và PR Community Plugins là [README.md](README.md) (English).
+**Hỏi bằng tiếng Việt tự nhiên — nhận câu trả lời gắn dữ liệu thật từ cửa hàng Haravan.** Đơn hàng, tồn kho, khách, khuyến mãi… không còn cảnh nhảy tab admin mỏi tay.
 
-**Trợ lý vận hành cửa hàng Haravan bằng AI** — kiểm tra đơn hàng, tồn kho, khách hàng, doanh thu bằng tiếng Việt tự nhiên.
+> *“Hôm nay cửa hàng có gì cần lo?”* — một câu hỏi, một lượt tổng hợp. Không phải tự mò từng màn hình.
 
-## Dành cho ai?
-
-| Bạn là... | Cài đặt |
-|---|---|
-| Chủ shop dùng **OpenClaw** | [Hướng dẫn OpenClaw](#openclaw) |
-| Dùng **Claude Desktop** | [Hướng dẫn Claude](#claude-desktop) |
-| Dùng **Manus** | [Hướng dẫn Manus](#manus--antigravity) |
-| Dùng **Antigravity** | [Hướng dẫn Antigravity](#manus--antigravity) |
-| Dùng **Cursor** | [Hướng dẫn Cursor](#cursor) |
+*README mặc định cho Community Plugins (tiếng Anh):* [README.md](README.md)
 
 ---
 
-## Cài đặt theo nền tảng
+## Vì sao cần công cụ này?
 
-### OpenClaw
+| Trước | Sau khi có Haravan Ops |
+|-------|------------------------|
+| Vận hành “sống trong admin Haravan” | Hỏi chat: *tồn thấp*, *rủi ro SLA*, *KM có ổn không* |
+| Copy số liệu sang chat tay | Trợ lý **kéo** signal đúng việc từ Haravan giúp bạn |
+| Kiến thức vận hành nằm trong đầu một người | Cả team đều có thể hỏi bằng **ngôn ngữ thường ngày** |
 
-**Cách khuyến nghị — Plugin (dễ cấu hình, token qua UI/schema):**
+Repo này gồm **plugin OpenClaw** và **MCP server** — cùng một “bộ não” vận hành, khác **giao diện** (OpenClaw, Claude Desktop, Cursor…). Bạn chọn công cụ chat; **giá trị** luôn là: *nhanh chóng thấy điều quan trọng trong shop*.
 
-1. Clone + build: `git clone … && cd openclaw-haravan && npm install && npm run build`
-2. Cài plugin local: `openclaw plugins install -l ./packages/openclaw-haravan-plugin`
-3. Trong config OpenClaw, bật plugin `haravan-ops` và điền:
-   - `shop`: `your-shop.myharavan.com`
-   - `accessToken`: token API Haravan
-4. Chat: *"Tình hình cửa hàng hôm nay thế nào?"*
+---
 
-Sau khi maintainer publish lên npm hoặc ClawHub, người dùng cài một lệnh:
+## Luồng trải nghiệm (mô hình trực quan)
 
-`openclaw plugins install @haravan-master/openclaw-haravan-ops-plugin`
-
-Chi tiết thứ tự publish các package trong monorepo, ClawHub, và PR lên danh sách Community: [docs/deploy-openclaw-plugin.md](docs/deploy-openclaw-plugin.md).
-
-**Cách thay thế — Skill + MCP (env):**
-
-1. Vào OpenClaw → Settings → **Add Skill**
-2. Dán URL repo: `tody-agent/openclaw-haravan`
-3. Cấu hình MCP như dưới (Cursor/Claude) với `HARAVAN_SHOP` / `HARAVAN_TOKEN`
-
-### Claude Desktop
-
-Mở file `claude_desktop_config.json` và thêm:
-
-```json
-{
-  "mcpServers": {
-    "haravan-ops": {
-      "command": "npx",
-      "args": ["-y", "--prefix", "/path/to/openclaw-haravan", "openclaw-haravan-ops-mcp"],
-      "env": {
-        "HARAVAN_SHOP": "your-shop.myharavan.com",
-        "HARAVAN_TOKEN": "your-token"
-      }
-    }
-  }
-}
+```
+     BẠN                    TRỢ LÝ AI                   HARAVAN
+      │                          │                          │
+      │ "Cho tôi báo cáo nhanh  │                          │
+      │  hôm nay"                │                          │
+      ├─────────────────────────►│                          │
+      │                          │  lấy đơn / tồn / KM     │
+      │                          ├─────────────────────────►│
+      │                          │◄─────────────────────────┤
+      │◄─────────────────────────┤  tóm tắt + điểm rủi ro   │
+      │  trả lời dễ hiểu         │                          │
 ```
 
-Hoặc clone repo + build:
+**Một dòng:** *Câu hỏi → bộ công cụ vận hành → dữ liệu Haravan → câu trả lời để bạn hành động.*
+
+---
+
+## Kịch bản dùng ngay (copy & hỏi)
+
+- **Sáng vào việc** — *“Tình hình hôm nay thế nào: doanh thu, đơn tồn, có gì bất thường?”*
+- **Tồn kho** — *“Món nào sắp hết hoặc dễ bán vượt? Cảnh báo trước khi oversell.”*
+- **Đơn & SLA** — *“Đơn nào đang rủi ro trễ / kẹt trạng thái?”*
+- **Khuyến mãi** — *“Các chương trình KM đang chạy có đỏ cờ gì không?”*
+- **Sâu hơn (tuỳ chọn)** — giao diện theme, gọi API có kiểm soát — bật khi cần, xem [docs/plugin-openclaw.md](docs/plugin-openclaw.md).
+
+Thiết kế theo hướng **đọc nhiều, hỗ trợ vận hành**: đưa tín hiệu và gợi ý — **không** thay kế toán, tư vấn thuế hay cam kết SLA của nền tảng. Việc ảnh hưởng tiền và tuân thủ: **đối chiếu lại trong Haravan và sổ sách**.
+
+---
+
+## Bắt đầu nhanh (khuyến nghị)
+
+**Đã dùng OpenClaw?** Sau khi gói được publish lên npm hoặc [ClawHub](https://docs.openclaw.ai/tools/clawhub):
+
+```bash
+openclaw plugins install @haravan-master/openclaw-haravan-ops-plugin
+```
+
+Bật plugin **`haravan-ops`**, điền **`shop`** (vd. `shop-cua-ban.myharavan.com`) và **`accessToken`** (token ứng dụng riêng Haravan). Mở chat và hỏi câu “báo cáo nhanh” đầu tiên.
+
+**Làm từ mã nguồn:**
 
 ```bash
 git clone https://github.com/tody-agent/openclaw-haravan.git
-cd openclaw-haravan && npm install && npm run build
+cd openclaw-haravan
+npm install && npm run build
+openclaw plugins install -l ./packages/openclaw-haravan-plugin
 ```
 
-Rồi trỏ `"command": "node"`, `"args": ["packages/mcp-server/dist/index.js"]`.
-
-### Manus / Antigravity
-
-1. Dán repo URL: `tody-agent/openclaw-haravan`
-2. Agent tự đọc `SKILL.md` và import MCP server
-
-### Cursor
-
-Thêm vào `.cursor/mcp.json` hoặc Settings → MCP:
-
-```json
-{
-  "mcpServers": {
-    "haravan-ops": {
-      "command": "node",
-      "args": ["/path/to/openclaw-haravan/packages/mcp-server/dist/index.js"],
-      "env": {
-        "HARAVAN_SHOP": "your-shop.myharavan.com",
-        "HARAVAN_TOKEN": "your-token"
-      }
-    }
-  }
-}
-```
+Một số tool (`theme_draft_create`, `haravan_com_api`, `haravan_web_api`) có thể cần bật rõ ràng — chi tiết: [docs/plugin-openclaw.md](docs/plugin-openclaw.md).
 
 ---
 
-## Docs site (VitePress)
+## Dùng Claude / Cursor / OpenClaw Skill + MCP
 
-```bash
-npm run docs:dev    # local
-npm run docs:build  # output: docs/.vitepress/dist
+Cấu hình biến môi trường **`HARAVAN_SHOP`** và **`HARAVAN_TOKEN`**, trỏ tới server MCP trong repo. Hướng dẫn từng bước: [docs/cai-dat-va-thiet-lap.md](docs/cai-dat-va-thiet-lap.md); lệnh nhanh: [AGENTS.md](AGENTS.md).
+
+---
+
+## Bên trong hộp (tóm tắt không “jargon”)
+
+```
+  ┌─────────────────────────────────────────────────────────────┐
+  │  CÔNG CỤ “THEO VIỆC”     Một lần gọi = một câu hỏi kinh doanh │
+  │  (snapshot ngày, SLA, tồn, KM, …)                            │
+  └───────────────────────────┬─────────────────────────────────┘
+                              │
+  ┌───────────────────────────▼─────────────────────────────────┐
+  │  CẦU HARAVAN             Truy cập REST có kiểu, phần mở rộng  │
+  │  (đơn, chi nhánh, tín hiệu catalog, đường dẫn được bảo vệ)   │
+  └───────────────────────────┬─────────────────────────────────┘
+                              │
+  ┌───────────────────────────▼─────────────────────────────────┐
+  │  LOGIC DÙNG CHUNG        Plugin và MCP không lệch nhau         │
+  │  (@haravan-master/haravan-ops-dispatch)                       │
+  └─────────────────────────────────────────────────────────────┘
 ```
 
-**GitHub Pages:** bật *Settings → Pages → Build and deployment → GitHub Actions*, rồi push `main` — workflow [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) build với `VITEPRESS_BASE=/<tên-repo>/`. Site: `https://<user>.github.io/<repo>/`
+Danh sách tool đầy đủ: `packages/openclaw-haravan-plugin/openclaw.plugin.json`. Skill định tuyến cho agent: [skills/openclaw-haravan-ops/SKILL.md](skills/openclaw-haravan-ops/SKILL.md).
 
-## Công cụ (tóm tắt)
+---
 
-Plugin/MCP gồm **tool composite** (snapshot ngày, SLA đơn, tồn, KM, thuế, theme…) và **cầu API** `haravan_*` (đơn hàng, location, transaction/refund, v.v.). Danh sách đầy đủ trong `packages/openclaw-haravan-plugin/openclaw.plugin.json`.
+## Tài liệu & site
+
+| Tài liệu | Dùng khi |
+|----------|----------|
+| [docs/plugin-openclaw.md](docs/plugin-openclaw.md) | Manifest, tool tuỳ chọn |
+| [docs/deploy-openclaw-plugin.md](docs/deploy-openclaw-plugin.md) | Maintainer: thứ tự publish |
+| [docs/architecture.md](docs/architecture.md) | Bản đồ monorepo |
+| **VitePress** | `npm run docs:dev` / `npm run docs:build` |
+| **GitHub Pages** | Bật Actions deploy; xem [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) — site dạng `https://<user>.github.io/<repo>/` |
+
+**Đóng góp:** trước PR chạy **`npm run verify`**. Tuỳ chọn: `npm run hooks:install` + [gitleaks](https://github.com/gitleaks/gitleaks) — [AGENTS.md](AGENTS.md).
+
+---
 
 ## License
 
-MIT
+MIT — [GitHub Issues](https://github.com/tody-agent/openclaw-haravan/issues) cho bug và ý tưởng.
 
 ---
 

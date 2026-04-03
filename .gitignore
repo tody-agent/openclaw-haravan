@@ -1,5 +1,16 @@
 node_modules/
 dist/
 .env
+.env.*
+!.env.example
+!.env.test
+.dev.vars
+!.dev.vars.example
+.secret-lifecycle.json
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+.DS_Store
+.idea/
+*.pem
+*.key
+coverage/
