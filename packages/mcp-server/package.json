@@ -1,0 +1,35 @@
+{
+  "name": "@haravan-master/openclaw-haravan-ops-mcp",
+  "version": "0.1.0",
+  "description": "Lean MCP server cho OpenClaw — 33 composite ops tools cho vận hành Haravan.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "openclaw-haravan-ops-mcp": "bin/run"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "prepack": "npm run build",
+    "start": "node dist/index.js",
+    "test": "vitest run test",
+    "test:gate": "npm run build && vitest run test --reporter=verbose",
+    "verify": "npm run test:gate"
+  },
+  "dependencies": {
+    "@haravan-master/core": "file:../../../haravan-core",
+    "@modelcontextprotocol/sdk": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.3",
+    "vitest": "^4.1.2"
+  }
+}
