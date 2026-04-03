@@ -1,0 +1,11 @@
+# Secret Shield — Gitleaks (extends defaults + project allowlist)
+title = "openclaw-haravan"
+
+[extend]
+useDefault = true
+
+[allowlist]
+paths = [
+  '''\.gitleaks\.toml$''',
+  '''scripts/security-scan\.mjs$''',
+]

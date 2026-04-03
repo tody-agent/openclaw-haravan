@@ -1,5 +1,6 @@
-/** Định nghĩa tool MCP cho ListTools — mô tả tiếng Việt cho chủ shop */
+import { API_BRIDGE_MCP_TOOLS } from "./mcp-api-bridge-tools";
 
+/** Định nghĩa tool MCP cho ListTools — mô tả tiếng Việt cho chủ shop */
 export const LEAN_MCP_TOOLS = [
   {
     name: "daily_business_snapshot",
@@ -216,4 +217,5 @@ export const LEAN_MCP_TOOLS = [
       required: ["description"],
     },
   },
-] as const;
+  ...API_BRIDGE_MCP_TOOLS,
+];

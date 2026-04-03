@@ -8,10 +8,15 @@ keywords: "openclaw lean install, openclaw haravan 1 lệnh, doctor openclaw"
 # Cài OpenClaw lean
 
 :::tip Chọn đúng lane
-Trang này có **2 lane**:
-- **Business**: 1 lệnh hoặc bảo AI tự cài
-- **IT / Dev**: build tay, doctor, package cục bộ
+Trang này có **3 lane**:
+- **Plugin OpenClaw** (khuyến nghị nếu bạn dùng OpenClaw gateway): cấu hình `shop` + `accessToken` trong plugin
+- **Business**: 1 lệnh hoặc bảo AI tự cài (skill / chat)
+- **IT / Dev**: build tay, MCP + env, doctor, package cục bộ
 :::
+
+## Lane 0: Plugin OpenClaw (khuyến nghị)
+
+Xem hướng dẫn đầy đủ tại **[Plugin Haravan Ops](/plugin-openclaw)** — build repo, `openclaw plugins install -l ./packages/openclaw-haravan-plugin`, rồi điền config plugin.
 
 ## Lane 1: Business (khuyên dùng)
 
@@ -100,10 +105,10 @@ npm run build --workspace @haravan-master/openclaw-haravan-ops-mcp
 npm run doctor-openclaw
 ```
 
-Nếu team bạn muốn bản đóng gói offline, xem [Gói IT](/openclaw-kit/goi-phan-phoi-cuc-bo).
+Nếu team bạn muốn bản đóng gói offline, xem [Gói IT](/goi-phan-phoi-cuc-bo).
 
 ## Liên kết
 
-- [Theo vai trò](/openclaw-kit/su-dung-theo-vai-tro)
-- [FAQ](/openclaw-kit/cau-hoi-thuong-gap)
-- [Build MCP](/openclaw-lean/README)
+- [Theo vai trò](/su-dung-theo-vai-tro)
+- [FAQ](/cau-hoi-thuong-gap)
+- [Lean playbook README](/lean/README)

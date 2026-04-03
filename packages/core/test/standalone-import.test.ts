@@ -21,7 +21,7 @@ describe("Standalone Core Package", () => {
     expect(mod).toBeDefined();
   });
 
-  it("creates Haravan instance with all 10 resources", () => {
+  it("creates Haravan instance with typed resources, locations, and com/web escape hatches", () => {
     const instance = new Haravan({
       shopDomain: "test.myharavan.com",
       accessToken: "test-token",
@@ -36,6 +36,11 @@ describe("Standalone Core Package", () => {
     expect(instance.inventory).toBeDefined();
     expect(instance.shop).toBeDefined();
     expect(instance.promotions).toBeDefined();
+    expect(instance.locations).toBeDefined();
+    expect(instance.com).toBeDefined();
+    expect(instance.web).toBeDefined();
+    expect(instance.orders.transactions).toBeDefined();
+    expect(instance.orders.refunds).toBeDefined();
   });
 
   it("throws when missing config", () => {

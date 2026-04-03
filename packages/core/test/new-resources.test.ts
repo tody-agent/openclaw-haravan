@@ -6,12 +6,12 @@ describe('New API Resources — Unit & Mutation Tests', () => {
   let fetchMock: any;
 
   beforeEach(() => {
-    fetchMock = vi.fn().mockImplementation(async (url: string, options: any) => {
+    fetchMock = vi.fn().mockImplementation(async (url: string, options?: { method?: string; body?: string }) => {
+      const method = options?.method ?? 'GET';
       return {
         status: 200,
         ok: true,
         json: async () => {
-          // Return appropriate mock data based on URL
           if (url.includes('/customers/count')) return { count: 42 };
           if (url.includes('/customers/search')) return { customers: [{ id: 1, email: 'found@test.com' }] };
           if (url.includes('/customers')) return { customers: [{ id: 1 }], customer: { id: 1, email: 'test@test.com' } };
@@ -20,6 +20,26 @@ describe('New API Resources — Unit & Mutation Tests', () => {
           if (url.includes('/webhooks')) return { webhooks: [{ id: 1, topic: 'orders/create' }], webhook: { id: 1, topic: 'orders/create', address: 'https://cb.test' } };
           if (url.includes('/fulfillments')) return { fulfillments: [{ id: 1 }], fulfillment: { id: 1, tracking_number: 'TRK123' } };
           if (url.includes('/inventory_levels')) return { inventory_levels: [{ inventory_item_id: 1 }], inventory_level: { inventory_item_id: 1, available: 10 } };
+          if (url.includes('/locations.json')) return { locations: [{ id: 1, name: 'Kho mặc định' }] };
+          if (url.match(/\/locations\/\d+\.json/)) return { location: { id: 991324, name: 'Kho mặc định' } };
+          if (url.includes('/transactions')) {
+            if (method === 'POST' && url.endsWith('/transactions.json')) return { transaction: { id: 2, kind: 'Capture' } };
+            if (method === 'GET' && /\/transactions\/\d+\.json/.test(url)) return { transaction: { id: 1, order_id: 9 } };
+            if (method === 'GET' && url.endsWith('/transactions.json')) return { transactions: [{ id: 1, order_id: 9, kind: 'pending' }] };
+          }
+          if (url.includes('/refunds')) {
+            if (method === 'POST' && url.endsWith('/refunds.json')) return { refund: { id: 102, note: 'ok' } };
+            if (method === 'GET' && /\/refunds\/\d+\.json$/.test(url)) return { refund: { id: 101, order_id: 9 } };
+            if (method === 'GET' && url.endsWith('/refunds.json')) return { refunds: [{ id: 101, order_id: 9 }] };
+          }
+          if (url.includes('/orders/') && url.includes('/close.json')) return { order: { id: 9, closed_at: 'x' } };
+          if (url.includes('/orders/') && url.includes('/tags.json') && method === 'GET') return { tags: 'VIP,a1' };
+          if (url.includes('/orders/') && url.includes('/tags.json') && method === 'POST') return { tags: 'VIP,a1,a2' };
+          if (url.includes('/orders/') && url.includes('/tags.json') && method === 'DELETE') return { tags: 'VIP' };
+          if (url.includes('/products/count')) return { count: 120 };
+          if (url.includes('/products/') && url.includes('/tags.json') && method === 'POST') return { tags: 'sale,new' };
+          if (url.includes('/products/') && url.includes('/tags.json') && method === 'DELETE') return { tags: 'sale' };
+          if (url.includes('/custom_collections.json')) return { custom_collections: [] };
           return {};
         },
       };
@@ -194,6 +214,75 @@ describe('New API Resources — Unit & Mutation Tests', () => {
       expect(url).toContain('/inventory_levels/set.json');
       const parsed = JSON.parse(options.body);
       expect(parsed.available).toBe(50);
+    });
+  });
+
+  describe('LocationsResource', () => {
+    it('lists locations', async () => {
+      const rows = await client.locations.list();
+      expect(rows[0].id).toBe(1);
+      const [url] = fetchMock.mock.calls[0];
+      expect(url).toContain('/locations.json');
+      expect(url).toContain('apis.haravan.com/com');
+    });
+
+    it('gets one location', async () => {
+      const loc = await client.locations.get(991324);
+      expect(loc.name).toBe('Kho mặc định');
+    });
+  });
+
+  describe('OrdersResource — extended', () => {
+    it('lists transactions for an order', async () => {
+      const txs = await client.orders.transactions.list(9);
+      expect(txs[0].kind).toBe('pending');
+    });
+
+    it('creates a transaction', async () => {
+      await client.orders.transactions.create(9, { amount: 100000, kind: 'Capture' });
+      const [, options] = fetchMock.mock.calls[0];
+      expect(JSON.parse(options.body).transaction.kind).toBe('Capture');
+    });
+
+    it('lists refunds', async () => {
+      const r = await client.orders.refunds.list(9);
+      expect(r[0].id).toBe(101);
+    });
+
+    it('closes an order', async () => {
+      await client.orders.close(9);
+      const [url, options] = fetchMock.mock.calls[0];
+      expect(url).toContain('/orders/9/close.json');
+      expect(options.method).toBe('POST');
+    });
+
+    it('adds order tags', async () => {
+      const out = await client.orders.addTags(9, 'a1,a2');
+      expect(out.tags).toContain('a2');
+    });
+  });
+
+  describe('ProductsResource — count & tags', () => {
+    it('counts products', async () => {
+      const n = await client.products.count();
+      expect(n).toBe(120);
+    });
+
+    it('adds product tags', async () => {
+      await client.products.addTags(5, 'sale');
+      const [url, options] = fetchMock.mock.calls[0];
+      expect(url).toContain('/products/5/tags.json');
+      expect(options.method).toBe('POST');
+    });
+  });
+
+  describe('ComRestResource', () => {
+    it('GET arbitrary com path', async () => {
+      const data = await client.com.get<{ custom_collections: unknown[] }>('/custom_collections.json');
+      expect(data.custom_collections).toEqual([]);
+      const [url] = fetchMock.mock.calls[0];
+      expect(url).toContain('/custom_collections.json');
+      expect(url).toContain('apis.haravan.com/com');
     });
   });
 });

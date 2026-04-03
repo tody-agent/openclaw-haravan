@@ -64,6 +64,6 @@ npm run test:openclaw-ops:gate
 
 Họ **không cần** đọc trang này trước — gửi họ:
 
-- [Trang tổng bộ kit](/openclaw-kit/)  
-- [Cài đặt & thiết lập](/openclaw-kit/cai-dat-va-thiet-lap) (nếu họ tự cấu hình được)  
-- [FAQ](/openclaw-kit/cau-hoi-thuong-gap)
+- [Trang tổng bộ kit](/)  
+- [Cài đặt & thiết lập](/cai-dat-va-thiet-lap) (nếu họ tự cấu hình được)  
+- [FAQ](/cau-hoi-thuong-gap)

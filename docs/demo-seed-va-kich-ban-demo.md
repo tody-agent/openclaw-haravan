@@ -106,6 +106,6 @@ npx tsx scripts/seed-demo-via-mcp.ts --prefix DEMO_HAILM
 
 ## Liên kết
 
-- [Theo vai trò](/openclaw-kit/su-dung-theo-vai-tro)
-- [Lưu ý an toàn](/openclaw-lean/safety-disclaimers)
-- [Bảng API tools](/api/tools-reference)
+- [Theo vai trò](/su-dung-theo-vai-tro)
+- [Lưu ý an toàn](/lean/safety-disclaimers)
+- [Ma trận tool](/lean/playbook-tool-matrix)

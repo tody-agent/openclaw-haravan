@@ -436,8 +436,7 @@ Nếu chỉ cần một câu để mô tả với khách hàng hoặc nội bộ
 
 ## Liên kết nên đọc tiếp
 
-- [Trang tổng OpenClaw kit](/openclaw-kit/)
-- [Hướng dẫn theo vai trò](/openclaw-kit/su-dung-theo-vai-tro)
-- [Seed dữ liệu demo & kịch bản trình diễn](/openclaw-kit/demo-seed-va-kich-ban-demo)
-- [Bảng API tools bản full](/api/tools-reference)
-- [Ma trận tool của OpenClaw lean](/openclaw-lean/playbook-tool-matrix)
+- [Trang tổng OpenClaw kit](/)
+- [Hướng dẫn theo vai trò](/su-dung-theo-vai-tro)
+- [Seed dữ liệu demo & kịch bản trình diễn](/demo-seed-va-kich-ban-demo)
+- [Ma trận tool lean](/lean/playbook-tool-matrix)

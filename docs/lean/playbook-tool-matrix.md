@@ -1,6 +1,6 @@
 # Ma trận Playbook → MCP OpenClaw (composite) → Skill pack
 
-Tài liệu ánh xạ [playbook-ideas.md](../playbook-ideas.md) sang tool trong `openclaw-haravan-ops-mcp` và gợi ý pack skill.  
+Tài liệu ánh xạ [playbook ideas](/playbook-ideas) sang tool trong `openclaw-haravan-ops-mcp` và gợi ý pack skill.  
 **R/W:** `read` = chỉ đọc API; `confirm-write` = cần xác nhận rõ ràng trước khi ghi (xem [safety-disclaimers.md](./safety-disclaimers.md)).
 
 | Playbook | Tool MCP (composite) | R/W | Skill pack gợi ý |

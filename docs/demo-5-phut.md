@@ -177,6 +177,6 @@ Tóm tắt tình hình hôm nay như một COO.
 
 ## Link liên quan
 
-- [Seed dữ liệu demo & kịch bản trình diễn](/openclaw-kit/demo-seed-va-kich-ban-demo)
-- [Theo vai trò](/openclaw-kit/su-dung-theo-vai-tro)
-- [Bảng API tools](/api/tools-reference)
+- [Seed dữ liệu demo & kịch bản trình diễn](/demo-seed-va-kich-ban-demo)
+- [Theo vai trò](/su-dung-theo-vai-tro)
+- [Ma trận tool lean](/lean/playbook-tool-matrix)

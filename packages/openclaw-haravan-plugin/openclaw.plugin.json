@@ -1,0 +1,76 @@
+{
+  "id": "haravan-ops",
+  "name": "Haravan Ops",
+  "description": "Haravan shop operations: composite ops tools + typed API bridge (orders, locations, refunds, com/web) — đồng bộ MCP.",
+  "version": "0.1.0",
+  "contracts": {
+    "tools": [
+      "daily_business_snapshot",
+      "order_sla_and_fulfillment_risks",
+      "find_unfulfilled_orders",
+      "find_orders_needing_attention",
+      "find_low_stock_risks",
+      "inventory_oversell_and_anomalies",
+      "pricing_anomaly_scan",
+      "product_compliance_scan",
+      "tax_compliance_snapshot",
+      "end_of_day_reconciliation",
+      "slow_mover_and_restock_advisor",
+      "promotion_health",
+      "segment_high_value_customers",
+      "find_reactivation_candidates",
+      "weekly_ops_audit",
+      "monthly_pl_estimate",
+      "audit_theme_risk",
+      "theme_draft_create",
+      "preview_theme_change",
+      "haravan_list_locations",
+      "haravan_get_location",
+      "haravan_get_order",
+      "haravan_update_order",
+      "haravan_order_close",
+      "haravan_order_open",
+      "haravan_order_cancel",
+      "haravan_order_tags_get",
+      "haravan_order_tags_add",
+      "haravan_order_tags_remove",
+      "haravan_list_order_transactions",
+      "haravan_get_order_transaction",
+      "haravan_create_order_transaction",
+      "haravan_list_order_refunds",
+      "haravan_get_order_refund",
+      "haravan_create_order_refund",
+      "haravan_products_count",
+      "haravan_product_tags_add",
+      "haravan_product_tags_remove",
+      "haravan_com_api",
+      "haravan_web_api"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["shop", "accessToken"],
+    "properties": {
+      "shop": {
+        "type": "string",
+        "description": "Shop domain, e.g. your-shop.myharavan.com"
+      },
+      "accessToken": {
+        "type": "string",
+        "description": "Haravan private app or legacy API access token"
+      }
+    }
+  },
+  "uiHints": {
+    "shop": {
+      "label": "Haravan shop",
+      "placeholder": "your-shop.myharavan.com"
+    },
+    "accessToken": {
+      "label": "Access token",
+      "placeholder": "Paste token",
+      "sensitive": true
+    }
+  }
+}

@@ -24,6 +24,7 @@ import {
   runThemeDraftCreate,
   runPreviewThemeChange,
 } from "./ops-tools/theme-safe";
+import { callHaravanApiBridge, isHaravanApiBridgeTool } from "./api-bridge-handlers";
 
 function num(v: unknown, fallback: number): number {
   return typeof v === "number" && !Number.isNaN(v) ? v : fallback;
@@ -155,6 +156,9 @@ export async function callLeanTool(
       });
 
     default:
+      if (isHaravanApiBridgeTool(name)) {
+        return callHaravanApiBridge(name, a, haravan);
+      }
       throw new Error(`Unknown tool: ${name}`);
   }
 }

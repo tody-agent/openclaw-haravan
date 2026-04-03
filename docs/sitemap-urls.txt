@@ -1,0 +1,20 @@
+# Relative paths for site root (prepend your deployed origin + base)
+# Example: https://USER.github.io/openclaw-haravan/ + path below
+
+/
+/cai-dat-va-thiet-lap
+/plugin-openclaw
+/deploy-openclaw-plugin
+/architecture
+/analysis
+/playbook-ideas
+/demo-5-phut
+/demo-seed-va-kich-ban-demo
+/su-dung-theo-vai-tro
+/nang-luc-va-use-cases-theo-vai-tro
+/cau-hoi-thuong-gap
+/goi-phan-phoi-cuc-bo
+/lean/README
+/lean/playbook-tool-matrix
+/lean/safety-disclaimers
+/lean/scheduler-adapters

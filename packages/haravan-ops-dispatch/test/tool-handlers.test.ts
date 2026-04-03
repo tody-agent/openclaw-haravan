@@ -83,4 +83,23 @@ describe("callLeanTool", () => {
     expect(result).toMatchObject({ status: "preview" });
     expect(haravan.themes.create).not.toHaveBeenCalled();
   });
+
+  test("haravan_list_locations delegates to core", async () => {
+    const list = vi.fn().mockResolvedValue([{ id: 1, name: "Kho A" }]);
+    const haravan = { locations: { list } } as any;
+    const result = await callLeanTool("haravan_list_locations", {}, haravan);
+    expect(list).toHaveBeenCalledTimes(1);
+    expect(result).toEqual([{ id: 1, name: "Kho A" }]);
+  });
+
+  test("haravan_com_api GET forwards path", async () => {
+    const get = vi.fn().mockResolvedValue({ shop: { name: "T" } });
+    const haravan = { com: { get } } as any;
+    await callLeanTool(
+      "haravan_com_api",
+      { method: "GET", path: "/shop.json" },
+      haravan
+    );
+    expect(get).toHaveBeenCalledWith("/shop.json", undefined);
+  });
 });

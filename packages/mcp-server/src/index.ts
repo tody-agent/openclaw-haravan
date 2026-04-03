@@ -5,9 +5,11 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { Haravan } from "@haravan-master/core";
+import {
+  callLeanTool,
+  LEAN_MCP_TOOLS,
+} from "@haravan-master/haravan-ops-dispatch";
 import { getStartupMessage, SERVER_INFO } from "./bootstrap";
-import { callLeanTool } from "./tool-handlers";
-import { LEAN_MCP_TOOLS } from "./mcp-tool-definitions";
 
 const shopDomain = process.env.HARAVAN_SHOP || "";
 const accessToken = process.env.HARAVAN_TOKEN || "";

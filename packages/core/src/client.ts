@@ -102,8 +102,19 @@ export class HaravanClient {
     return this.request<T>(endpoint, { method: "PUT", body: JSON.stringify(body) });
   }
 
-  /** Send a DELETE request. */
-  async delete(endpoint: string) {
-    return this.request<void>(endpoint, { method: "DELETE" });
+  /** Send a DELETE request. Optional JSON body (Haravan dùng cho xóa tags đơn/sản phẩm). */
+  async delete(endpoint: string, body?: unknown) {
+    return this.request<void>(endpoint, {
+      method: "DELETE",
+      ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+    });
+  }
+
+  /** DELETE có body và phản hồi JSON (vd. orders/{id}/tags.json). */
+  async deleteJson<T>(endpoint: string, body?: unknown): Promise<T> {
+    return this.request<T>(endpoint, {
+      method: "DELETE",
+      ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+    });
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@haravan-master/openclaw-haravan-ops-mcp",
   "version": "0.1.0",
-  "description": "Lean MCP server cho OpenClaw — 33 composite ops tools cho vận hành Haravan.",
+  "description": "MCP server OpenClaw Haravan — tool composite vận hành + API bridge haravan_* (đồng bộ plugin).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@haravan-master/core": "*",
+    "@haravan-master/haravan-ops-dispatch": "*",
     "@modelcontextprotocol/sdk": "^1.6.1"
   },
   "devDependencies": {

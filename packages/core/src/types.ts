@@ -233,3 +233,50 @@ export interface Discount {
   created_at: string;
   updated_at: string;
 }
+
+/** Địa điểm / kho — GET /locations.json */
+export interface Location {
+  id: number;
+  name?: string;
+  address1?: string;
+  address2?: string;
+  city?: string;
+  province?: string;
+  country?: string;
+  zip?: string;
+  phone?: string;
+  country_code?: string;
+  province_code?: string;
+  district?: string;
+  ward?: string;
+  is_primary?: boolean;
+  created_at?: string;
+  updated_at?: string;
+  [key: string]: unknown;
+}
+
+/** Giao dịch thanh toán đơn — /orders/{id}/transactions.json */
+export interface Transaction {
+  id: number;
+  order_id: number;
+  amount?: number;
+  kind?: string;
+  status?: string;
+  gateway?: string;
+  currency?: string;
+  created_at?: string;
+  parent_id?: number | null;
+  [key: string]: unknown;
+}
+
+/** Hoàn tiền — /orders/{id}/refunds.json */
+export interface Refund {
+  id: number;
+  order_id: number;
+  note?: string;
+  restock?: boolean | null;
+  created_at?: string;
+  refund_line_items?: unknown[];
+  transactions?: Transaction[];
+  [key: string]: unknown;
+}

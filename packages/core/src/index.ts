@@ -9,6 +9,9 @@ import { FulfillmentsResource } from "./resources/fulfillments";
 import { InventoryResource } from "./resources/inventory";
 import { ShopResource } from "./resources/shop";
 import { PromotionsResource } from "./resources/promotions";
+import { LocationsResource } from "./resources/locations";
+import { ComRestResource } from "./resources/com-rest";
+import { WebRestResource } from "./resources/web-rest";
 import { HaravanConfig } from "./types";
 
 export * from "./types";
@@ -21,6 +24,9 @@ export * from "./errors";
  *
  * Instantiate with a {@link HaravanConfig} to get typed access to every
  * resource (products, orders, customers, …) through dedicated sub-objects.
+ *
+ * - {@link Haravan.com} — gọi thẳng endpoint `/com/...` khi chưa có resource typed.
+ * - {@link Haravan.web} — gọi endpoint `/web/...` (bổ sung theme/asset).
  */
 export class Haravan {
   public products: ProductsResource;
@@ -33,6 +39,11 @@ export class Haravan {
   public inventory: InventoryResource;
   public shop: ShopResource;
   public promotions: PromotionsResource;
+  public locations: LocationsResource;
+  /** Escape hatch: Admin API `apis.haravan.com/com` */
+  public com: ComRestResource;
+  /** Escape hatch: `apis.haravan.com/web` */
+  public web: WebRestResource;
 
   constructor(config: HaravanConfig) {
     const client = new HaravanClient(config);
@@ -48,6 +59,8 @@ export class Haravan {
     this.inventory = new InventoryResource(client);
     this.shop = new ShopResource(client);
     this.promotions = new PromotionsResource(client);
+    this.locations = new LocationsResource(client);
+    this.com = new ComRestResource(client);
+    this.web = new WebRestResource(webClient);
   }
 }
-

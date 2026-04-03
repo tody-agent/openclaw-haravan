@@ -1,0 +1,21 @@
+{
+  "name": "@haravan-master/haravan-ops-dispatch",
+  "version": "0.1.0",
+  "description": "Shared Haravan ops tool dispatch for MCP and OpenClaw plugin.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepack": "npm run build",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "@haravan-master/core": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.3",
+    "vitest": "^4.1.2"
+  }
+}

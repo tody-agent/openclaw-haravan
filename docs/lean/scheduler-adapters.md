@@ -1,6 +1,6 @@
 # Lịch chạy định kỳ (tách khỏi MCP)
 
-MCP `openclaw-haravan-ops` chạy theo **request** (OpenClaw / client). Các use case trong [playbook-ideas.md](../playbook-ideas.md) gợi ý cron (`*/5`, `0 22`…) — triển khai ở **lớp ngoài**.
+MCP `openclaw-haravan-ops` chạy theo **request** (OpenClaw / client). Các use case trong [playbook ideas](/playbook-ideas) gợi ý cron (`*/5`, `0 22`…) — triển khai ở **lớp ngoài**.
 
 ## Nguyên tắc
 
