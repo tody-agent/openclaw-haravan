@@ -17,24 +17,31 @@ export default defineConfig({
         text: "Bắt đầu",
         items: [
           { text: "Bắt đầu trong 3 phút", link: "/cam-tay-chi-viec" },
-          { text: "Bản đồ tài liệu", link: "/bo-tai-lieu" },
+          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
           { text: "Cài plugin OpenClaw", link: "/plugin-openclaw" },
           { text: "Cài đặt kỹ thuật", link: "/cai-dat-va-thiet-lap" },
-          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
         ],
       },
       {
-        text: "Dùng hằng ngày",
+        text: "Theo vai trò",
         items: [
-          { text: "Câu hỏi theo vai trò", link: "/su-dung-theo-vai-tro" },
-          { text: "AI làm được gì?", link: "/nang-luc-va-use-cases-theo-vai-tro" },
-          { text: "Danh mục Ops Tools", link: "/api-ops-tools" },
-          { text: "Personas", link: "/personas" },
-          { text: "JTBD", link: "/jtbd" },
-          { text: "FAQ", link: "/cau-hoi-thuong-gap" },
+          { text: "Chọn vai trò", link: "/su-dung-theo-vai-tro" },
+          { text: "🏪 Chủ shop", link: "/vai-tro/chu-shop" },
+          { text: "📦 Vận hành", link: "/vai-tro/van-hanh" },
+          { text: "📣 Marketing", link: "/vai-tro/marketing" },
+          { text: "🎧 CS", link: "/vai-tro/cham-soc-khach" },
+          { text: "💻 IT", link: "/vai-tro/it-tech" },
         ],
       },
-      { text: "Cộng đồng", link: "/cong-dong-va-chia-se" },
+      {
+        text: "Tham khảo",
+        items: [
+          { text: "AI làm được gì?", link: "/nang-luc-va-use-cases-theo-vai-tro" },
+          { text: "Danh mục Ops Tools", link: "/api-ops-tools" },
+          { text: "FAQ", link: "/cau-hoi-thuong-gap" },
+          { text: "Cộng đồng", link: "/cong-dong-va-chia-se" },
+        ],
+      },
     ],
     sidebar: [
       {
@@ -42,32 +49,34 @@ export default defineConfig({
         items: [
           { text: "Trang chủ", link: "/" },
           { text: "Bắt đầu trong 3 phút", link: "/cam-tay-chi-viec" },
-          { text: "Bản đồ tài liệu", link: "/bo-tai-lieu" },
+          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
           { text: "Plugin Haravan Ops", link: "/plugin-openclaw" },
           { text: "Cài đặt kỹ thuật", link: "/cai-dat-va-thiet-lap" },
-          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
+          { text: "Bản đồ tài liệu", link: "/bo-tai-lieu" },
         ],
       },
       {
-        text: "Dùng hằng ngày",
+        text: "Playbook theo vai trò",
         items: [
-          { text: "Câu hỏi theo vai trò", link: "/su-dung-theo-vai-tro" },
-          {
-            text: "AI làm được gì?",
-            link: "/nang-luc-va-use-cases-theo-vai-tro",
-          },
+          { text: "Chọn vai trò", link: "/su-dung-theo-vai-tro" },
+          { text: "🏪 Chủ shop / CEO", link: "/vai-tro/chu-shop" },
+          { text: "📦 Vận hành / Kho", link: "/vai-tro/van-hanh" },
+          { text: "📣 Marketing / CRM", link: "/vai-tro/marketing" },
+          { text: "🎧 CS / Chăm sóc khách", link: "/vai-tro/cham-soc-khach" },
+          { text: "💻 IT / CTO", link: "/vai-tro/it-tech" },
+        ],
+      },
+      {
+        text: "Tham khảo",
+        items: [
+          { text: "AI làm được gì?", link: "/nang-luc-va-use-cases-theo-vai-tro" },
           { text: "Danh mục Ops Tools", link: "/api-ops-tools" },
-          { text: "Demo & kịch bản mẫu", link: "/demo-seed-va-kich-ban-demo" },
-        ],
-      },
-      {
-        text: "Hiểu thêm",
-        items: [
           { text: "Personas", link: "/personas" },
           { text: "JTBD", link: "/jtbd" },
           { text: "FAQ", link: "/cau-hoi-thuong-gap" },
           { text: "Cam kết an toàn", link: "/lean/safety-disclaimers" },
           { text: "Cộng đồng & chia sẻ", link: "/cong-dong-va-chia-se" },
+          { text: "Demo & kịch bản mẫu", link: "/demo-seed-va-kich-ban-demo" },
         ],
       },
       {

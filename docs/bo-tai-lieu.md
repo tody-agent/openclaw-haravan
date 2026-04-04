@@ -17,23 +17,33 @@ robots: index, follow
 
 | Mục tiêu | Trang |
 |----------|--------|
-| **Làm lần đầu, từng bước** | [Cầm tay chỉ việc](/cam-tay-chi-viec) |
-| **Biết mình là ai trong ảnh (persona)** | [Personas](/personas) · [JTBD](/jtbd) |
+| **Làm lần đầu, từng bước** | [Bắt đầu trong 3 phút](/cam-tay-chi-viec) |
+| **Xem thử nhanh** | [Xem thử 5 phút](/demo-5-phut) |
 | **Cài trên OpenClaw (khuyến nghị)** | [Plugin Haravan Ops](/plugin-openclaw) |
-| **Cài MCP / Cursor / Claude** | [Cài đặt & thiết lập](/cai-dat-va-thiet-lap) |
-| **Thử nhanh 5 phút** | [Demo 5 phút](/demo-5-phut) |
-| **Câu hỏi theo buổi / vai trò** | [Sử dụng theo vai trò](/su-dung-theo-vai-tro) |
-| **Tool có thể làm gì (ví dụ)** | [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro) |
-| **Lỗi, thắc mắc** | [Câu hỏi thường gặp](/cau-hoi-thuong-gap) |
-| **Thử nghiệm / dữ liệu mẫu** | [Demo seed & kịch bản](/demo-seed-va-kich-ban-demo) |
-| **Thuế, P&L, rủi ro khi để AI ghi** | [Điều quan trọng cần biết](/lean/safety-disclaimers) |
-| **Chia sẻ site / góp ý** | [Cộng đồng & chia sẻ](/cong-dong-va-chia-se) |
+| **Cài MCP / Cursor / Claude** | [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap) |
+| **Câu hỏi theo vai trò** | [Chọn vai trò](/su-dung-theo-vai-tro) |
+| **Tool có thể làm gì** | [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro) · [Ops Tools](/api-ops-tools) |
+| **Lỗi, thắc mắc** | [FAQ](/cau-hoi-thuong-gap) |
+| **Cam kết an toàn** | [Điều quan trọng cần biết](/lean/safety-disclaimers) |
+| **Cộng đồng** | [Cộng đồng & chia sẻ](/cong-dong-va-chia-se) |
+
+## 📋 Playbook theo vai trò (MỚI)
+
+> Mỗi vai trò có 1 trang playbook riêng — **câu hỏi mẫu chia theo ngày / tuần / tháng**.
+
+| Vai trò | Playbook |
+|---------|---------|
+| 🏪 Chủ shop / CEO | [→ Playbook Chủ shop](/vai-tro/chu-shop) |
+| 📦 Vận hành / Kho | [→ Playbook Vận hành](/vai-tro/van-hanh) |
+| 📣 Marketing / CRM | [→ Playbook Marketing](/vai-tro/marketing) |
+| 🎧 CS / Chăm sóc khách | [→ Playbook CS](/vai-tro/cham-soc-khach) |
+| 💻 IT / CTO | [→ Playbook IT](/vai-tro/it-tech) |
 
 ## Gợi ý thứ tự đọc
 
-1. **Chủ shop / vận hành:** [Cầm tay chỉ việc](/cam-tay-chi-viec) → [Demo 5 phút](/demo-5-phut) → [Theo vai trò](/su-dung-theo-vai-tro).
-2. **Đã dùng OpenClaw:** [Plugin](/plugin-openclaw) → hỏi thử một câu về đơn hoặc tồn.
-3. **Muốn hiểu “làm được gì”:** [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro).
+1. **Mới hoàn toàn:** [Bắt đầu 3 phút](/cam-tay-chi-viec) → [Xem thử 5 phút](/demo-5-phut) → [Chọn vai trò](/su-dung-theo-vai-tro)
+2. **Đã cài xong:** [Chọn playbook vai trò](/su-dung-theo-vai-tro) → dùng mỗi ngày
+3. **Muốn hiểu tổng:** [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro)
 
 Mở rộng kỹ thuật (repo GitHub): [github.com/tody-agent/openclaw-haravan](https://github.com/tody-agent/openclaw-haravan)
 
