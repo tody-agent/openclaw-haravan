@@ -1,118 +1,92 @@
 ---
-title: "Bắt đầu trong 3 phút — từ chưa cài đến câu hỏi đầu tiên"
+title: "Cầm tay chỉ việc: 3 Bước để có Trợ lý AI 'đọc hiểu' Shop Haravan"
 description: >-
-  Hướng dẫn từng bước cho người mới: cài plugin, điền thông tin shop,
-  rồi hỏi câu đầu tiên — không cần biết code.
+  Hướng dẫn siêu đơn giản cho chủ shop: từ lúc chưa có gì đến khi
+  chat được với AI về dữ liệu shop thật — chỉ trong 3 phút.
 keywords: >-
-  hướng dẫn cài Haravan AI, cài plugin OpenClaw, bắt đầu nhanh, Haravan token
+  hướng dẫn Haravan AI, trợ lý ảo Haravan, OpenClaw Haravan, báo cáo shop bằng AI
 robots: index, follow
 ---
 
-# Bắt đầu trong 3 phút
+# Cầm tay chỉ việc: Có ngay trợ lý AI sau 3 phút
 
-> Bạn không cần biết "monorepo" hay "TypeScript" là gì. Chỉ cần làm **3 bước** dưới đây, theo đúng thứ tự. Nếu gặp vấn đề, nhờ bạn IT hoặc xem [FAQ](/cau-hoi-thuong-gap).
+Chào bạn! Nếu bạn là chủ shop Haravan và muốn có một "đệ tử" AI túc trực 24/7 để báo cáo doanh thu, soi đơn hàng lỗi hay nhắc tồn kho mà **không muốn đụng vào code**, thì đây là bài viết dành cho bạn.
 
----
-
-## Bước 1 — Chuẩn bị shop & token
-
-Bạn cần 2 thứ trước khi bắt đầu:
-
-| Cần gì | Cách lấy |
-|--------|---------|
-| **Tên shop** | Dạng `ten-shop.myharavan.com` (không thêm `https://`) |
-| **Token riêng** | Trong Haravan admin → Ứng dụng → Tạo ứng dụng riêng → copy token |
-
-::: warning 🔒 Bảo mật token
-Không dán token vào bất kỳ chat công khai nào (Zalo group, Slack public, Facebook…). Lưu vào file cấu hình trên máy bạn thôi.
-:::
-
-Chi tiết quyền cần cấp: [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap).
+Chúng ta sẽ đi qua 3 bước "mì ăn liền" cực nhanh:
 
 ---
 
-## Bước 2 — Cài plugin (chọn cách phù hợp)
+## Bước 1: Lấy "chìa khóa" vào shop (🔑)
 
-### 🟢 Cách A: Dùng OpenClaw (dễ nhất, khuyến nghị)
+Để AI đọc được dữ liệu, bạn cần cung cấp cho nó 2 thông tin bảo mật từ trang quản trị Haravan:
 
-Nếu bạn đang dùng **OpenClaw** (app chat AI), chỉ cần:
+1.  **Tên shop:** Là cái tên trước chữ `.myharavan.com`. (Ví dụ: `tody-chi-nhanh-1`)
+2.  **Mã bảo mật (Token):** Bạn vào *Cấu hình* -> *Ứng dụng* -> *Tạo ứng dụng riêng*. Sau khi lưu, hãy copy dòng **Access Token**.
 
-1. Cài plugin:
-   ```bash
-   openclaw plugins install @haravan-master/openclaw-haravan-ops-plugin
-   ```
-2. Trong OpenClaw: bật plugin **`haravan-ops`**, điền **tên shop** và **token**.
-3. Xong! Chuyển sang [Bước 3](#bước-3-hỏi-câu-đầu-tiên).
-
-> **Nếu cài từ source** (IT muốn tùy chỉnh):
-> ```bash
-> git clone https://github.com/tody-agent/openclaw-haravan.git
-> cd openclaw-haravan
-> npm install && npm run build
-> openclaw plugins install -l ./packages/openclaw-haravan-plugin
-> ```
-
-Hướng dẫn đầy đủ: [Plugin Haravan Ops](/plugin-openclaw).
-
-### 🔵 Cách B: Dùng Cursor / Claude Desktop / IDE có MCP
-
-Nếu bạn dùng Cursor, Claude Desktop, hoặc IDE hỗ trợ MCP:
-
-1. Clone repo, `npm install && npm run build`.
-2. Thêm MCP server vào config IDE, trỏ tới `packages/mcp-server/dist/index.js`:
-   - Biến môi trường: `HARAVAN_SHOP` + `HARAVAN_TOKEN`
-3. Restart IDE.
-
-Chi tiết: [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap).
-
----
-
-## Bước 3 — Hỏi câu đầu tiên
-
-Mở chat AI, copy **một** câu dưới đây và dán vào:
-
-```text
-Hôm nay shop bán thế nào? Có đơn nào cần chú ý không?
-```
-
-Hoặc:
-
-```text
-Có SKU nào tồn thấp hoặc sắp hết không?
-```
-
-### Bạn sẽ thấy gì?
-
-AI sẽ trả lời bằng tiếng Việt, bám dữ liệu shop thật:
-- **Doanh thu ngày** — tổng hợp từ đơn hàng
-- **Đơn cần chú ý** — chưa thanh toán, chưa giao, lỡ SLA
-- **Cảnh báo** — tồn thấp, giá bất thường, KM sắp hết hạn
-
-::: tip Kỳ vọng đúng
-AI là **trợ lý tóm tắt & cảnh báo sớm**. Nó không thay báo cáo kế toán, không tự sửa shop. Số thuế / P&L là ước tính — luôn đối chiếu sổ sách. Xem [cam kết an toàn](/lean/safety-disclaimers).
+::: tip 💡 Mẹo nhỏ
+Nếu bạn thấy phần này hơi "lạ lẫm", hãy gửi trang [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap) này cho bạn IT của shop, bạn ấy sẽ lấy giúp bạn trong 30 giây!
 :::
 
 ---
 
-## Nếu không chạy?
+## Bước 2: Kết nối AI với Shop (🛠️)
 
-Đừng lo, hầu hết lỗi đều đơn giản:
+Hiện tại, cách dễ nhất là dùng **OpenClaw** (phần mềm chat AI chuyên dụng cho công việc).
 
-| Triệu chứng | Cách sửa nhanh |
-|-------------|----------------|
-| Không thấy tool Haravan trong chat | Đã `npm run build` chưa? Đã restart app chưa? |
-| Báo lỗi token | Token còn hạn không? Tên shop đúng format `xxx.myharavan.com`? |
-| AI trả lời chung chung, không có số | MCP đã bật chưa? Thử nói rõ: *"Lấy dữ liệu từ shop qua tool"* |
-| Lỗi "Cannot find module" | Cài [Node.js 20+](https://nodejs.org/), chạy lại `npm install && npm run build` |
+1.  **Mở OpenClaw** lên.
+2.  Tìm mục **Plugins** (hoặc Tiện ích mở rộng).
+3.  Chọn cài đặt **Haravan Ops**.
+4.  Dán **Tên shop** và **Mã bảo mật** bạn vừa lấy ở Bước 1 vào.
 
-Xem thêm: [FAQ](/cau-hoi-thuong-gap).
+::: details 🤓 Dành cho bạn nào thích mày mò (Kỹ thuật)
+Nếu bạn muốn tự cài bằng lệnh terminal, hãy nhấn vào đây:
+```bash
+# Cài đặt plugin qua OpenClaw CLI
+openclaw plugins install @haravan-master/openclaw-haravan-ops-plugin
+```
+Hoặc xem hướng dẫn chi tiết tại: [Plugin Haravan Ops](/plugin-openclaw).
+:::
 
 ---
 
-## Bước tiếp — dùng hàng ngày
+## Bước 3: "Ra lệnh" cho trợ lý AI (💬)
 
-Bạn đã cài xong? Tuyệt vời. Dưới đây là gợi ý tiếp theo:
+Bây giờ là lúc tận hưởng thành quả. Bạn hãy mở khung chat AI và thử copy-paste nguyên văn các câu dưới đây:
 
-- 📋 [Câu hỏi mẫu theo vai trò](/su-dung-theo-vai-tro) — copy dán mỗi ngày
-- 📊 [AI làm được gì?](/nang-luc-va-use-cases-theo-vai-tro) — danh sách năng lực
-- 🗺️ [Bản đồ tài liệu](/bo-tai-lieu) — tìm đúng trang bạn cần
+### 📊 "Soi" tình hình kinh doanh
+> *"Hôm nay shop bán buôn thế nào? Có đơn nào khách đặt mà mình chưa xử lý không?"*
+
+### ⚠️ Tìm lỗi vận hành
+> *"Có đơn hàng nào đang bị giao chậm hoặc khách than phiền gì không? Liệt kê cho mình các đơn cần chú ý gấp."*
+
+### 📦 Kiểm kho nhanh
+> *"Những món nào sắp hết hàng? Có cái nào tồn kho nhiều mà bán chậm không?"*
+
+---
+
+## AI sẽ trả lời bạn như thế nào?
+
+Thay vì trả lời chung chung, Trợ lý AI sẽ đưa ra con số thật từ shop của bạn:
+*   **Doanh thu:** *"Dạ hôm nay shop mình chốt được 15 đơn, tổng 12.5 triệu..."*
+*   **Cảnh báo:** *"Anh/Chị ơi, có 3 đơn từ hôm qua khách đã chuyển khoản nhưng kho chưa đóng gói..."*
+*   **Gợi ý:** *"Mẫu áo thun trắng size L chỉ còn 2 cái, mình nên nhập thêm hoặc tắt quảng cáo mẫu này ạ."*
+
+---
+
+## Một vài lưu ý nhỏ để "tình bạn" bền lâu
+
+*   **Bảo mật là trên hết:** Tuyệt đối không gửi Mã bảo mật (Token) cho người lạ hoặc dán vào các nhóm chat công khai.
+*   **AI là trợ lý, không phải kế toán:** AI giúp bạn tóm tắt nhanh và cảnh báo sớm. Với các số liệu thuế hay quyết toán tiền nong, bạn vẫn nên đối chiếu lại với sổ sách chính thức nhé. Xem thêm [Cam kết an toàn](/lean/safety-disclaimers).
+*   **Nếu AI "im lặng":** Thường là do điền sai Tên shop hoặc Token hết hạn. Bạn chỉ cần kiểm tra lại Bước 1 là xong.
+
+---
+
+## Bạn muốn khám phá thêm?
+
+Bạn đã quen với việc chat cơ bản? Hãy thử xem các "tuyệt chiêu" nâng cao hơn tại đây:
+
+*   📖 [Mẫu câu hỏi hay cho Chủ shop](/su-dung-theo-vai-tro)
+*   🚀 [Các tình huống AI có thể giúp bạn](/nang-luc-va-use-cases-theo-vai-tro)
+*   ❓ [Giải đáp thắc mắc thường gặp](/cau-hoi-thuong-gap)
+
+Chúc bạn kinh doanh hồng phát với người bạn đồng hành mới này!

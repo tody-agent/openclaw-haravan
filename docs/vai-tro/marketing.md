@@ -1,93 +1,72 @@
 ---
-title: "📣 Marketing / CRM — Playbook ngày · tuần · tháng"
-description: "JTBD cho marketing Haravan: tìm khách VIP, kéo khách ngủ quên, kiểm tra KM, lên kế hoạch flash sale."
-keywords: "marketing haravan ai, crm haravan, khách vip, reactivation, khuyến mãi, jtbd marketing"
+title: "🎯 Kiến trúc sư Tăng trưởng — Tiếp thị bằng dữ liệu vàng"
+description: "Lịch trình cho team Marketing Haravan: Quét cơ hội từ khách VIP, tối ưu khuyến mãi và dự báo đợt sale cùng trợ lý AI."
+keywords: "marketing haravan, haravan ai ads, khách hàng vip haravan, crm haravan, khuyến mãi haravan, roi haravan"
 robots: "index, follow"
 ---
 
-# 📣 Marketing / CRM
+# 🎯 Kiến trúc sư Tăng trưởng: Đi tìm "Mỏ vàng" dữ liệu
 
-> **Bạn là người tăng trưởng từ tệp khách hiện có.** Biết ai đang mua nhiều, ai đang "ngủ quên", chiến dịch nào đang lỗ — để dồn nguồn lực đúng chỗ. AI giúp bạn phân tích tệp khách và kiểm tra chiến dịch trong vài giây.
-
----
-
-## Bạn sẽ dùng những gì?
-
-| Nhóm | Công cụ AI sẽ gọi | Mục đích |
-|------|-------------------|---------|
-| 👑 Khách VIP | `segment_high_value_customers` | Tìm top khách theo LTV, gợi ý chăm sóc |
-| 😴 Khách ngủ quên | `find_reactivation_candidates` | Khách >90 ngày không mua — kéo lại |
-| 🎁 Khuyến mãi | `promotion_health` | Mã đang lỗ, hết hạn vẫn active, ít dùng |
-| 💰 Giá & catalog | `pricing_anomaly_scan`, `product_compliance_scan` | Giá sai, sản phẩm thiếu ảnh/mô tả |
-| 📈 Sale forecast | `sale_period_stock_forecast` | Biết nên đẩy SP gì cho flash sale |
+> **Bạn là người mang khách hàng về.** Bạn muốn biết ngân sách mình chi ra có hái ra tiền không, khách nào là VIP cần chăm sóc đặc biệt, và hôm nay nên đẩy mạnh món gì. 
+> AI Haravan là một chuyên gia phân tích (Data Scientist) túc trực ngay trong hộp chat của bạn.
 
 ---
 
-## 📅 Hằng ngày — "Chiến dịch hôm nay có ổn không?"
+## Những "vũ khí" tối tân dành cho bạn
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Đang chạy KM, muốn check nhanh | `Khuyến mãi đang chạy có gì bất thường?` | Mã hết hạn vẫn active, mã trùng, mã ít dùng, chồng chéo |
-| Muốn biết giá có bị lỗi | `Quét giá bất thường giúp tôi` | SP giá 0đ, giá bán < vốn, giảm giá shock >90% |
-
-### 💡 Thói quen gợi ý
-
-```
-☀️ 9:00 sáng → "KM đang chạy có bất thường?"     (3 phút)
-```
+| Bạn muốn... | AI sẽ thực hiện | Giá trị mang lại |
+|:--- |:--- |:--- |
+| **Biến khách lạ thành quen** | `segment_high_value_customers` | Biết chính xác ai đã chi hàng chục triệu để dành ưu đãi VIP. |
+| **Tối ưu lợi nhuận** | `promotion_health`, `pricing_anomaly_scan` | Chặn đứng các mã KM bị lỗi, chồng chéo hoặc gây lỗ vốn. |
+| **Đón đầu xu hướng** | `sale_period_stock_forecast` | Biết món nào sắp "Hot" để chuẩn bị content và chạy Ads. |
+| **Cứu đơn hàng** | `find_orders_needing_attention` | Phát hiện khách đặt nhưng chưa thanh toán để remarketing ngay. |
 
 ---
 
-## 📆 Hằng tuần — "Tệp khách có gì mới?"
+## 📅 Nhịp đập hằng ngày — "Tối ưu hóa tức thì"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Cần biết VIP là ai | `Phân nhóm khách giá trị cao và gợi ý chăm sóc` | Top khách xếp theo tổng chi tiêu, gợi ý remarketing/loyalty |
-| Muốn kéo khách cũ quay lại | `Tìm khách lâu không mua (trên 90 ngày) để remarketing` | Danh sách khách dormant, ưu tiên theo mức chi tiêu — sẵn sàng bắn Zalo ZNS / email |
-| Kiểm tra catalog trước launch | `Sản phẩm nào thiếu ảnh, mô tả, hoặc SKU?` | SP lỗi hiển thị — sửa trước khi chạy ads |
-
-### 💡 Thói quen gợi ý
-
-```
-📅 Thứ 2 → "Top VIP + khách dormant"           (10 phút — lên kế hoạch tuần)
-📅 Thứ 5 → "Compliance catalog + giá sai?"      (5 phút — trước khi launch campaign)
-```
+| Thời gian | Câu lệnh gợi ý | Kết quả cho Marketing |
+|:--- |:--- |:--- |
+| **☀️ Sáng sớm** | `Hôm nay top sản phẩm nào đang bán chạy nhất?` | Biết món nào đang "trend" để đẩy mạnh Ads hoặc đăng bài Group/Fanpage. |
+| **🕐 Giữa trưa** | `Có mã khuyến mãi nào đang bị lỗi hoặc không ai dùng không?` | Kịp thời điều chỉnh chiến dịch trước khi ngân sách đổ vào quá nhiều. |
+| **🌙 Chiều tối** | `Liệt kê danh sách khách hàng mới hôm nay mua trên 2 triệu.` | Nhắn tin cảm ơn hoặc tặng voucher đặc biệt để giữ chân khách ngay. |
 
 ---
 
-## 📊 Hằng tháng — "Flash sale chuẩn bị thế nào?"
+## 📆 Tầm nhìn hằng tuần — "Săn lùng cơ hội"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Lên kế hoạch flash sale | `Forecast nhập kho cho đợt Mega Sale sắp tới` | Dự báo SP bán chạy nhất, số lượng cần stock, buffer safety |
-| Chọn SP push trong campaign | `Top sản phẩm bán chạy 28 ngày + slow movers?` | Fast movers (đẩy thêm) vs dead stock (cần giảm giá thanh lý) |
-| Đánh giá hiệu quả tệp KM tháng | `Tóm tắt KM + giá bất thường toàn tháng` | Health check tổng: bao nhiêu mã active, bao nhiêu cần dọn |
+Dùng 15 phút mỗi Thứ Sáu để "đãi cát tìm vàng":
 
-### 💡 Thói quen gợi ý
-
-```
-📊 Trước sale 7 ngày → "Stock forecast + chọn SP đẩy"        (15 phút)
-📊 Cuối tháng         → "Review VIP + dormant + KM health"    (15 phút)
-```
+1. **Phân loại khách VIP:** `Liệt kê khách hàng mua nhiều nhất (LTV cao) trong tháng qua.` (Gửi team CS liên hệ riêng).
+2. **Soi rủi ro KM:** `Tuần qua có những mã KM nào chồng chéo gây lỗ không?`
+3. **Tìm xu hướng:** `Sản phẩm nào đang tăng trưởng lượt xem nhưng chưa ra đơn nhiều?` (Review lại hình ảnh và mô tả sản phẩm ngay).
 
 ---
 
-## 🚀 Nâng cao — khi cần customer ops sâu
+## 📊 Chiến lược hằng tháng — "Kiến tạo bùng nổ"
 
-Khi bạn cần tag khách, xem chi tiết abandoned checkout, hoặc cross-sell — dùng **lớp full MCP**:
+Trước khi bước vào đợt Sale lớn (như 11/11, 12/12):
+
+*   **Dự kiến doanh số:** `Forecast doanh thu cho đợt Mega Sale sắp tới dựa trên lịch sử năm ngoái.`
+*   **Chuẩn bị hàng hóa:** `Mẫu nào sẽ là Hero Product đợt tới? Shop có đủ tồn không?`
+*   **Audit khách cũ:** `Khách hàng nào đã 3 tháng chưa quay lại mua hàng? Hãy cho tôi danh sách.` (Remarketing Re-engagement).
+
+---
+
+## 🚀 Thao tác quyền năng (Full MCP)
+
+Khi bạn muốn AI hỗ trợ sâu hơn vào dữ liệu khách hàng:
 
 ```text
-Tìm khách theo số điện thoại 0987654321 và tóm tắt lịch sử mua.
+Phân tích danh sách 100 khách hàng gần nhất: Họ ở khu vực nào nhiều nhất?
 ```
 
 ```text
-Gắn tag "vip-2026" cho khách email xxx@gmail.com.
+Gắn tag "VIP-DIAMOND" cho tất cả khách hàng đã chi trên 50 triệu.
 ```
 
----
+::: tip 💡 Mẹo từ AI Guide
+Bạn có thể bảo AI viết mẫu kịch bản chăm sóc khách hàng dựa trên dữ liệu thật. Ví dụ: *"Tạo một mẫu tin nhắn Zalo mời khách hàng #10234 quay lại mua hàng vì mẫu váy họ thích vừa có hàng mới."*
+:::
 
-## Liên kết
-
-- [← Chọn vai trò khác](/su-dung-theo-vai-tro)
-- [Bắt đầu trong 3 phút](/cam-tay-chi-viec)
-- [FAQ](/cau-hoi-thuong-gap)
+[← Chọn vai trò khác](/su-dung-theo-vai-tro) · [FAQ cho Marketers](/cau-hoi-thuong-gap)

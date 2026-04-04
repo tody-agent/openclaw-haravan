@@ -1,102 +1,76 @@
 ---
-title: "📦 Vận hành / Kho / Fulfillment — Playbook ngày · tuần · tháng"
-description: "JTBD cho ops & kho Haravan: xử lý đơn trễ, canh tồn, chốt sổ mỗi ngày. Hỏi AI thay vì lọc admin."
-keywords: "vận hành haravan, kho haravan ai, fulfillment, sla, tồn kho, oversell, jtbd ops"
+title: "⚙️ Thủ lĩnh Vận hành — Chìa khóa của sự chính xác"
+description: "Lộ trình hằng ngày, tuần, tháng cho team Ops & Kho: Xử lý đơn trễ, kiểm soát tồn kho và vận hành không sai sót cùng trợ lý AI."
+keywords: "vận hành haravan, kho haravan ai, fulfillment, sla haravan, tồn kho, oversell haravan"
 robots: "index, follow"
 ---
 
-# 📦 Vận hành / Kho / Fulfillment
+# ⚙️ Thủ lĩnh Vận hành: Từ "Rối bời" đến "Mượt mà"
 
-> **Bạn là người giữ cho shop chạy mượt.** Đơn không được trễ, kho không được cháy, oversell không được xảy ra. AI giúp bạn phát hiện vấn đề sớm — thay vì để khách hàng phát hiện trước.
-
----
-
-## Bạn sẽ dùng những gì?
-
-| Nhóm | Công cụ AI sẽ gọi | Mục đích |
-|------|-------------------|---------|
-| 📦 Đơn hàng | `order_sla_and_fulfillment_risks`, `find_unfulfilled_orders`, `find_orders_needing_attention` | Tìm đơn trễ, đơn treo, đơn cần xử lý |
-| 📉 Tồn kho | `find_low_stock_risks`, `inventory_oversell_and_anomalies` | Cảnh báo hết hàng, oversell |
-| 🔄 Nhập hàng | `slow_mover_and_restock_advisor`, `sale_period_stock_forecast` | Biết cần nhập gì, bao nhiêu |
-| ✅ Chốt sổ | `end_of_day_reconciliation` | Đối soát cuối ngày |
-| 🏷️ Catalog | `product_compliance_scan`, `pricing_anomaly_scan` | Phát hiện sản phẩm lỗi dữ liệu |
+> **Bạn là người giữ nhịp cho cả con tàu.** Một đơn hàng trễ, một mã hàng hết đột ngột đều là những "vết xước" trong lòng khách hàng. 
+> AI Haravan là người cộng sự tinh tường, giúp bạn soi thấy rủi ro trước khi nó thành sự cố.
 
 ---
 
-## 📅 Hằng ngày — "Đơn nào cần xử lý? Kho có ổn không?"
+## Bộ công cụ quyền năng của bạn
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Bắt đầu ca sáng | `Có đơn nào sắp lỡ SLA hoặc chưa giao?` | Danh sách đơn critical, lý do (chưa paid, thiếu vận đơn, quá hạn), mức ưu tiên |
-| Muốn biết đơn nào "kẹt" | `Liệt kê đơn chưa giao, ưu tiên theo thời gian` | Đơn unfulfilled sắp xếp cũ nhất trước |
-| Lo sợ hết hàng | `SKU nào đang low stock hoặc tồn âm?` | Bảng SKU + tồn hiện tại + cảnh báo oversell |
-| Cuối ngày, chốt sổ | `Chốt sổ cuối ngày cho ngày hôm nay` | Đối soát đơn theo variant, doanh thu, điểm lệch |
-
-### 💡 Thói quen gợi ý
-
-```
-☀️ 8:00  → "Đơn nào sắp lỡ SLA?"          (3 phút — ưu tiên xử lý trước)
-🕐 13:00 → "Tồn kho có oversell không?"     (2 phút — check giữa ngày)
-🌙 17:00 → "Chốt sổ cuối ngày"              (5 phút — bàn giao ca)
-```
+| Mục tiêu | Công cụ AI hỗ trợ | Kết quả bạn nhận được |
+|:--- |:--- |:--- |
+| **Giao hàng đúng hẹn** | `order_sla_and_fulfillment_risks` | Danh sách đơn hàng sắp trễ để ưu tiên xử lý |
+| **Kho bãi chuẩn xác** | `find_low_stock_risks`, `inventory_oversell_and_anomalies` | Cảnh báo hết hàng hoặc tồn kho âm (lỗi dữ liệu) |
+| **Dòng hàng thông minh** | `slow_mover_and_restock_advisor` | Biết chính xác món nào nên nhập thêm, món nào nên đẩy đi |
+| **Chốt sổ an tâm** | `end_of_day_reconciliation` | Đối soát nhanh mọi biến động trong ngày |
 
 ---
 
-## 📆 Hằng tuần — "Kho có healthy không? Catalog có sạch không?"
+## 📅 Nhịp đập hằng ngày — "Vận hành không kẽ hở"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Review tồn kho tổng | `Quét oversell và bất thường tồn kho` | Variant tồn âm, SP published mà tồn cực thấp, gợi ý hành động |
-| Kiểm tra catalog | `Sản phẩm nào thiếu ảnh, mô tả, hoặc SKU?` | Danh sách SP vi phạm rules: thiếu ảnh, mô tả trống, SKU trùng |
-| Muốn biết nhập hàng gì | `Hàng nào bán chậm? Gợi ý restock trong 28 ngày` | Slow movers (cần giảm tồn), fast movers (cần bơm hàng) |
-| Đơn huỷ nhiều | `Đơn huỷ/hoàn tuần này có pattern gì?` | Tổng hợp lý do, nhận diện trend |
+| Thời điểm | Câu lệnh gợi ý | Ý nghĩa cho bạn |
+|:--- |:--- |:--- |
+| **☀️ Đầu ca sáng** | `Có đơn nào sắp lỡ hẹn (SLA) hoặc chưa giao không?` | Nắm quyền ưu tiên — cứu ngay những đơn khách đang đợi lâu. |
+| **🕐 Giữa ca** | `Có mã hàng nào đang bị tồn âm hoặc sắp hết không?` | Ngăn chặn việc khách đặt nhưng không có hàng để giao (Oversell). |
+| **🌙 Cuối ca chiều** | `Chốt sổ cuối ngày giúp tôi` | Bàn giao ca nhẹ nhàng, biết rõ hôm nay đi bao nhiêu đơn, tiền về bao nhiêu. |
 
-### 💡 Thói quen gợi ý
-
-```
-📅 Thứ 2 → "Quét oversell + compliance catalog"     (10 phút)
-📅 Thứ 4 → "Restock advisor: nhập gì, giảm gì?"     (10 phút)
-```
-
----
-
-## 📊 Hằng tháng — "Chuẩn bị sale có kịp không?"
-
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Trước Mega Sale / Double Day | `Forecast nhập kho cho đợt sale sắp tới` | Dự báo lượng bán ra, SKU cần restock, buffer safety |
-| Đánh giá hiệu quả kho | `Hàng ế trong 28 ngày + tồn cover thấp nhất?` | Dead stock cần thanh lý, sản phẩm cần promotion đẩy |
-| Kiểm tra giá toàn shop | `Quét giá bất thường toàn shop` | Giá 0đ, giá bán < vốn, giảm giá shock |
-
-### 💡 Thói quen gợi ý
-
-```
-📊 Ngày 1 tháng  → "Review slow movers + dead stock"         (15 phút)
-📊 Trước sale 7 ngày → "Stock forecast + restock advisor"     (20 phút)
-```
-
----
-
-## 🚀 Nâng cao — khi cần thao tác thật
-
-Khi bạn cần **ghi dữ liệu** (điều chỉnh tồn, tạo fulfillment, tag đơn…) — dùng **lớp full MCP**:
-
-```text
-Xem chi tiết đơn hàng #100005.
-```
-
-```text
-Gắn tag "urgent" cho đơn #100002.
-```
-
-::: danger ⚠️ Thao tác ghi
-Các lệnh ghi (fulfillment, inventory, close/cancel đơn) cần bạn **xác nhận rõ ràng**. AI sẽ hỏi "Bạn có chắc?" — trả lời Có hoặc Không.
+::: tip 💡 Mẹo nhỏ cho Trưởng kho
+Hãy thử hỏi: *"Liệt kê các đơn hàng chưa đóng gói quá 24h và cho biết lý do kẹt ở đâu?"* — Bạn sẽ quản lý team hiệu quả hơn hẳn.
 :::
 
 ---
 
-## Liên kết
+## 📆 Tầm nhìn hằng tuần — "Sát thủ sai sót"
 
-- [← Chọn vai trò khác](/su-dung-theo-vai-tro)
-- [Bắt đầu trong 3 phút](/cam-tay-chi-viec)
-- [FAQ](/cau-hoi-thuong-gap)
+Vào mỗi sáng Thứ Hai, hãy dành 10 phút để AI làm "tổng duyệt" hệ thống:
+
+1. **Quét lỗi dữ liệu:** `Quét sản phẩm thiếu ảnh, mô tả hoặc sai giá.` (Catalog sạch sẽ giúp bán hàng tốt hơn).
+2. **Review đơn hủy:** `Đơn hủy/hoàn tuần qua có điểm chung gì không?` (Tìm ra lý do thực sự để khắc phục).
+3. **Kế hoạch restock:** `Hàng nào bán chạy nhất tuần qua? Mình có đủ tồn cho tuần tới không?`
+
+---
+
+## 📊 Chiến lược hằng tháng — "Vận hành tinh gọn"
+
+Trước mỗi đợt khuyến mãi lớn (Mega Sale) hoặc cuối tháng:
+
+*   **Dự báo kho:** `Dự báo lượng hàng cần nhập cho ngày 10/10 sắp tới.`
+*   **Thanh lý hàng ế:** `Liệt kê các mã hàng không bán được trong 30 ngày qua để lập kế hoạch xả kho.`
+*   **Audit giá:** `Quét toàn bộ giá bán xem có cái nào thấp hơn giá vốn không?`
+
+---
+
+## 🚀 Thao tác nâng cao (Dành cho Full MCP)
+
+Khi bạn cần AI trực tiếp thực hiện thay đổi, hãy nhớ AI luôn cần bạn xác nhận:
+
+```text
+Gắn tag "Giao gấp" cho những đơn hàng khách ở Hà Nội chưa giao.
+```
+
+```text
+Cập nhật tồn kho mã SKU-123 lên 50 cái.
+```
+
+::: warning ⚠️ Lưu ý an toàn
+Mọi thao tác thay đổi dữ liệu (Inventory, Tag, Fulfillment) đều cần bạn gật đầu xác nhận. AI sẽ không tự ý làm nếu bạn không nhắn "Đồng ý".
+:::
+
+[← Chọn vai trò khác](/su-dung-theo-vai-tro) · [Cài đặt trong 3 phút](/cam-tay-chi-viec)

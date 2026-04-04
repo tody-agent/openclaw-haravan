@@ -1,124 +1,76 @@
 ---
-title: "💻 IT / CTO / SysAdmin — Playbook ngày · tuần · tháng"
-description: "JTBD cho IT Haravan: health check, theme safety, doctor debug, packaging, demo seed."
-keywords: "it haravan, cto haravan ai, theme safety, webhook, doctor, mcp, sysadmin haravan"
+title: "🛡️ Hộ vệ Hệ thống — Khiến AI trở thành Siêu vũ khí"
+description: "Lộ trình cho team IT Haravan: Quản lý MCP, bảo mật API, audit hệ thống và tối ưu hiệu suất cùng Haravan Claw Master."
+keywords: "it haravan ai, mcp haravan, api haravan security, haravan claw master dev, bảo mật tmđt"
 robots: "index, follow"
 ---
 
-# 💻 IT / CTO / SysAdmin
+# 🛡️ Hộ vệ Hệ thống: Người làm chủ "Bộ não" AI
 
-> **Bạn là người giữ cho hệ thống chạy và an toàn.** Kết nối API, bảo vệ theme, debug khi có lỗi, cài đặt cho team business, đóng gói nội bộ. AI giúp bạn audit nhanh và phát hiện vấn đề trước khi ảnh hưởng tới shop.
+> **Bạn là kiến trúc sư đằng sau mọi thành công.** Hệ thống phải chạy không bao giờ nghỉ, dữ liệu phải tuyệt đối an toàn và các kết nối phải mượt mà.
+> AI Haravan là một cánh tay nối dài mạnh mẽ, giúp bạn giám sát và vận hành shop Haravan ở mức độ chuyên gia nhất.
 
 ---
 
-## Bạn sẽ dùng những gì?
+## Những quyền năng kỹ thuật tối tân
 
-| Nhóm | Công cụ AI sẽ gọi | Mục đích |
-|------|-------------------|---------|
-| 🎨 Theme | `audit_theme_risk`, `theme_draft_create`, `preview_theme_change` | Audit theme, tạo draft an toàn |
-| 🏭 Kho & địa điểm | `haravan_list_locations`, `haravan_get_location` | Kiểm tra location setup |
-| 🔌 API thô | `haravan_com_api`, `haravan_web_api` | Gọi API trực tiếp khi cần |
-| 🏷️ Tags | `haravan_order_tags_*`, `haravan_product_tags_*` | Quản lý tags đơn/sản phẩm |
-| 📊 Compliance | `product_compliance_scan`, `pricing_anomaly_scan` | Quét lỗi catalog & giá |
+| Bạn quản trị... | Công cụ AI hỗ trợ | Kết quả cho hệ thống |
+|:--- |:--- |:--- |
+| **Bảo mật & Tuân thủ** | `tax_compliance_snapshot`, `pricing_anomaly_scan` | Phát hiện lỗi giá, rủi ro thuế và các lỗ hổng trên catalog sản phẩm. |
+| **Sức khỏe API** | `fetch_order_financials`, `get_product_count` | Giám sát luồng dữ liệu, đối soát tài chính nóng từ Haravan API. |
+| **Audit tầng sâu** | `inventory_oversell_and_anomalies` | Tìm ra nguyên nhân gốc rễ của việc lệch kho hoặc lỗi đồng bộ dữ liệu. |
+| **Tối ưu hóa Prompts** | `system_prompt_management` | Tinh chỉnh cách AI trả lời để phù hợp nhất với văn hóa shop. |
 
-::: info 📌 IT dùng lớp Full MCP làm chính
-Bạn sẽ dùng toàn bộ tool set, bao gồm cả write tools. Lớp lean là để bạn bàn giao cho end user business.
+---
+
+## 📅 Nhịp đập hằng ngày — "Lưới lửa an ninh"
+
+| Thời gian | Công việc kỹ thuật | Câu lệnh gợi ý |
+|:--- |:--- |:--- |
+| **☀️ Check hệ thống** | Kiểm tra sự ổn định của API Haravan & Token. | `Kiểm tra kết nối tới Shop Haravan có ổn định không?` |
+| **🕐 Audit dữ liệu** | Quét xem có sản phẩm nào bị lỗi định dạng (compliance) không. | `Quét sản phẩm thiếu SKU hoặc thiếu hình ảnh.` |
+| **🌙 Backup & Review** | Xem lại các lệnh ghi (Write) quan trọng trong ngày. | `Liệt kê các thao tác cập nhật tồn kho hoặc fulfillment hôm nay.` |
+
+::: tip 💡 Dành cho DevOps
+Bạn có thể kết hợp **OpenClaw CLI** với các script CI/CD để tự động hóa việc cập nhật dữ liệu từ Shop Haravan về kho dữ liệu riêng của doanh nghiệp.
 :::
 
 ---
 
-## 📅 Hằng ngày — "Hệ thống có ổn không?"
+## 📆 Tầm nhìn hằng tuần — "Siêu năng lực tinh chỉnh"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Check theme đầu ngày | `Kiểm tra rủi ro theme hiện tại` | Số theme main/draft, config bất thường, cờ cảnh báo |
-| Debug đơn cụ thể | `Xem chi tiết đơn #100005` | Toàn bộ data đơn: line items, fulfillment, transactions, notes |
-| Check kho location | `Liệt kê tất cả location/kho` | Danh sách kho, trạng thái, active/inactive |
+Dành 20 phút cuối tuần để tối hưu hệ thống:
 
-### 💡 Thói quen gợi ý
-
-```
-☀️ 9:00 → "Audit theme risk"                  (2 phút — phát hiện sớm)
-🔥 Khi có ticket → Tra đơn/khách + check API   (theo nhu cầu)
-```
+1. **Audit quyền truy cập:** Kiểm tra lại các thiết lập Token và các role được phép sử dụng AI.
+2. **Review năng lực:** `Đánh giá xem AI có đang trả lời sai hoặc gặp lỗi dữ liệu (null values) ở đâu không?`
+3. **Quét rủi ro:** `Quét toàn bộ catalog và liệt kê các rủi ro vận hành (SLA trễ, tồn ảo).`
 
 ---
 
-## 📆 Hằng tuần — "Catalog sạch không? Config đúng không?"
+## 📊 Chiến lược hằng tháng — "Kiến tạo tương lai"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Review catalog health | `Quét sản phẩm thiếu ảnh, mô tả, hoặc SKU trùng` | Danh sách compliance issues — giao marketing/ops sửa |
-| Check giá bất thường | `Quét giá sai toàn shop` | Giá 0đ, compare_at sai, giảm giá shock |
-| Kiểm tra tags lộn xộn | `Liệt kê tags đơn #[id]` rồi cleanup | Tags hiện tại → gỡ tags rác |
+Trước khi bước sang tháng mới hoặc dự án tích hợp mới:
 
-### 💡 Thói quen gợi ý
-
-```
-📅 Thứ 3 → "Product compliance + pricing scan"   (10 phút)
-📅 Thứ 6 → "Theme audit + location check"         (5 phút)
-```
+*   **Audit tài chính:** `Đối soát mọi dòng tiền (Order Financials) tháng qua để chuẩn bị cho kế toán.`
+*   **Mở rộng năng lực:** Viết thêm các `Tools` mới cho MCP (như Tích hợp KiotViet, Nhanh.vn...) dựa trên khung sườn của Haravan Claw Master.
+*   **Training AI:** Tinh chỉnh System Prompt để AI hiểu sâu hơn về các dòng sản phẩm đặc thù của shop.
 
 ---
 
-## 📊 Hằng tháng — "Audit toàn hệ thống"
+## 🚀 Thao tác quyền năng nhất (Full Control)
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Audit tổng hệ thống | `Weekly audit + theme risk + compliance scan` | Bức tranh toàn cảnh: shop health + theme + catalog |
-| Chuẩn bị demo cho team | `Seed dữ liệu demo và chạy kịch bản 5 phút` | Dữ liệu sẵn sàng demo cho business stakeholders |
-| Đóng gói offline cho team | Build tarball theo [gói phân phối cục bộ](/goi-phan-phoi-cuc-bo) | Package `.tgz` cho team không có internet |
-| Chuẩn bị onboard nhân viên mới | Cài plugin cho họ theo [3 phút](/cam-tay-chi-viec) | Nhân viên mới hỏi AI được ngay ngày đầu |
-
-### 💡 Thói quen gợi ý
-
-```
-📊 Ngày 1 → "Full system audit"                    (20 phút)
-📊 Khi có nhân viên mới → "Setup + bàn giao playbook vai trò"   (30 phút)
-```
-
----
-
-## 🚀 Kịch bản IT nâng cao
-
-### Doctor & debug kết nối
-
-```bash
-# Kiểm tra build
-npm run doctor-mcp
-npm run doctor-openclaw
-
-# Kiểm tra kết nối thủ công
-node packages/mcp-server/dist/index.js
-```
-
-### Theme safety — tạo draft an toàn
+Bạn chính là người có chìa khóa mang tên **Full MCP Gateway**. Hãy dùng khi cần can thiệp hệ thống sâu:
 
 ```text
-Tạo theme draft tên "test-banner" để thử thay banner — tôi sẽ xác nhận.
-```
-
-AI sẽ: audit risk trước → hỏi confirm → tạo draft (không đụng theme main).
-
-### Gọi API thô khi cần
-
-```text
-Gọi GET /admin/custom_collections.json giúp tôi.
+Chạy audit toàn diện shop Haravan và xuất báo cáo rủi ro dưới dạng Markdown.
 ```
 
 ```text
-Đếm tổng sản phẩm đang active.
+Tìm 10 đơn hàng có doanh thu cao nhất từ trước đến nay và phân loại nhóm SKU đi kèm.
 ```
 
-::: danger ⚠️ API thô
-`haravan_com_api` và `haravan_web_api` cho phép gọi bất kỳ endpoint nào. POST/PUT/DELETE có thể ghi dữ liệu thật. Cẩn thận — AI sẽ hỏi xác nhận trước khi ghi.
+::: danger 🔐 An toàn là ưu tiên số 1
+Là IT, bạn chịu trách nhiệm cao nhất về bảo mật **Access Token**. Hãy luôn sử dụng biến môi trường (Environment Variables) hoặc file `.env` được bảo vệ, tuyệt đối không hardcode Token vào bất kỳ đâu.
 :::
 
----
-
-## Liên kết
-
-- [← Chọn vai trò khác](/su-dung-theo-vai-tro)
-- [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap)
-- [Danh mục Ops Tools](/api-ops-tools)
-- [FAQ](/cau-hoi-thuong-gap)
+[← Chọn vai trò khác](/su-dung-theo-vai-tro) · [Cài đặt kỹ thuật (Chi tiết)](/cai-dat-va-thiet-lap)

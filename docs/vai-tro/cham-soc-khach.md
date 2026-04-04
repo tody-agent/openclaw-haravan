@@ -1,104 +1,74 @@
 ---
-title: "🎧 Chăm sóc khách hàng (CS) — Playbook ngày · tuần · tháng"
-description: "JTBD cho CS Haravan: tra đơn nhanh, soạn lời xin lỗi, giữ khách VIP, đối soát refund."
-keywords: "cs haravan, customer support, tra đơn, xin lỗi khách, khách vip, refund haravan, jtbd cs"
+title: "✨ Đại sứ Chăm sóc khách — Biến mỗi chạm thành gắn kết"
+description: "Lộ trình cho team CS Haravan: Soi đơn lỗi, tri ân khách VIP và xử lý phản hồi thần tốc cùng trợ lý AI."
+keywords: "chăm sóc khách hàng haravan, crm haravan ai, xử lý đơn trễ, khách hàng thân thiết haravan, trải nghiệm khách hàng"
 robots: "index, follow"
 ---
 
-# 🎧 Chăm sóc khách hàng (CS)
+# ✨ Đại sứ Chăm sóc khách: Từ "Phân bua" đến "Tri ân"
 
-> **Bạn là người nói chuyện trực tiếp với khách.** Khách gọi = cần câu trả lời ngay. AI giúp bạn tra đơn, hiểu lịch sử mua, soạn lời phản hồi — để khách cảm thấy được chăm sóc, không phải chờ đợi.
+> **Bạn là gương mặt đại diện của shop.** Khách hàng có quay lại hay không phụ thuộc vào nụ cười (và sự nhanh nhẹn) của bạn.
+> AI Haravan là người đồng đội "bốn mắt", luôn nhắc bạn khách nào đang buồn để dỗ dành, khách nào đang yêu để gửi quà.
 
 ---
 
-## Bạn sẽ dùng những gì?
+## Những đặc quyền dành riêng cho bạn
 
-| Nhóm | Công cụ AI sẽ gọi | Mục đích |
-|------|-------------------|---------|
-| 🔍 Tra đơn | `haravan_get_order`, `find_orders_needing_attention` | Xem chi tiết đơn, tìm đơn cần chú ý |
-| 💳 Giao dịch | `haravan_list_order_transactions`, `haravan_list_order_refunds` | Kiểm tra thanh toán, hoàn tiền |
-| 👑 Khách VIP | `segment_high_value_customers` | Biết khách nào là VIP để ưu tiên |
-| 😴 Win-back | `find_reactivation_candidates` | Khách cũ cần kéo lại |
+| Bạn muốn... | AI sẽ thực hiện | Giá trị mang lại |
+|:--- |:--- |:--- |
+| **Biết đơn nào cần cứu** | `find_orders_needing_attention` | Phát hiện ngay những đơn hàng khách than phiền hoặc bị kẹt lâu. |
+| **Nói lời tri ân đúng lúc** | `segment_high_value_customers` | AI liệt kê khách hàng VIP để bạn tặng quà bất ngờ. |
+| **Xử lý đơn trễ thần tốc** | `find_unfulfilled_orders` | Nắm danh sách đơn chưa giao để chủ động gọi xin lỗi khách trước. |
+| **Thêm nhãn cho khách** | `update_customer_meta` | Ghi chú lại sở thích, size, màu khách hay chọn để lần sau tư vấn chuẩn hơn. |
 
-::: info 📌 CS nên dùng lớp Full MCP
-Vì CS cần tra chi tiết từng đơn, từng khách — bạn sẽ dùng **full MCP tools** nhiều hơn các vai trò khác. Nhờ IT bật cho bạn.
+---
+
+## 📅 Nhịp đập hằng ngày — "Chăm sóc từng món quà"
+
+| Thời gian | Câu lệnh gợi ý | Ý nghĩa cho CS |
+|:--- |:--- |:--- |
+| **☀️ Đầu ngày** | `Có đơn hàng nào từ hôm qua khách đã paid mà chưa giao (SLA) không?` | Chủ động báo kho xử lý hoặc nhắn tin xin lỗi khách sớm. |
+| **🕐 Giữa ngày** | `Cho tôi danh sách các khách hàng đang có đơn bị hoàn hoặc hủy.` | Liên hệ hỏi thăm lý do, có thể tặng mã giảm giá để khách mua lại mã khác. |
+| **🌙 Cuối ngày** | `Tóm tắt các khách hàng mới phát sinh trong ngày nay.` | Lưu thông tin, gửi tin nhắn chào mừng và mời tham gia nhóm khách hàng thân thiết. |
+
+::: tip 💡 Câu hỏi "Gỡ rối"
+Thử hỏi: *"Khách hàng số điện thoại 09x.xxx có đơn hàng nào kẹt ở kho không?"* — AI giúp bạn tra cứu nhanh hơn 5 lần so với ngồi lọc thủ công.
 :::
 
 ---
 
-## 📅 Hằng ngày — "Khách gọi, trả lời ngay"
+## 📆 Tầm nhìn hằng tuần — "Nâng tầm trải nghiệm"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Khách gọi hỏi đơn | `Xem chi tiết đơn hàng #[mã đơn]` | Trạng thái đơn, thanh toán, giao hàng, ghi chú |
-| Khách complain chung | `Tìm khách theo SĐT 0987654321 và tóm tắt lịch sử mua` | Profile khách: số lần mua, tổng chi, đơn gần nhất, ghi chú |
-| Cần biết đơn nào đang "kẹt" | `Đơn nào đang cần chú ý thanh toán hoặc giao hàng?` | Danh sách đơn treo — để liên hệ khách chủ động |
-| Cần check hoàn tiền | `Liệt kê refund của đơn #[mã đơn]` | Chi tiết hoàn tiền: số tiền, lý do, thời gian |
+Dành 15 phút Thứ Bảy để làm "Đại sứ hạnh phúc":
 
-### 💡 Thói quen gợi ý
-
-```
-☀️ Đầu ca  → "Đơn nào đang cần chú ý?"         (3 phút — liên hệ chủ động)
-🔥 Khi khách gọi → Tra đơn/khách theo SĐT        (30 giây — trả lời ngay)
-🌙 Cuối ca  → "Có đơn nào tôi chưa xử lý?"       (2 phút)
-```
+1. **Quét khách VIP:** `Liệt kê các khách hàng chi tiêu trên 10 triệu trong tuần qua.` (Tạo danh sách gửi quà tri ân).
+2. **Review phản hồi:** `Tuần qua có đơn hàng nào bị khách ghi chú tiêu cực trong phần Order Note không?`
+3. **Cập nhật hồ sơ:** Nhờ AI phân loại khách theo hành vi: "Khách nghiện Flash Sale", "Khách chuyên mua đồ hiệu"...
 
 ---
 
-## 📆 Hằng tuần — "Khách VIP nào cần chú ý đặc biệt?"
+## 📊 Chiến lược hằng tháng — "Gắn kết bền lâu"
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Muốn biết VIP nào sắp churn | `Top khách VIP + khách nào lâu không mua?` | Top khách theo LTV + khách dormant — để gọi chăm trước |
-| Review pattern khiếu nại | `Đơn huỷ và hoàn tuần này có pattern gì?` | Nhóm lý do huỷ/hoàn, trend theo thời gian |
-
-### 💡 Thói quen gợi ý
-
-```
-📅 Thứ 2 → "VIP + dormant cần chăm"            (10 phút)
-📅 Thứ 6 → "Pattern huỷ/hoàn tuần này"          (5 phút)
-```
+*   **Audit khách cũ:** `Tìm các khách hàng VIP đã 2 tháng chưa quay lại mua hàng.` (Chiến dịch Re-connect).
+*   **Báo cáo hạnh phúc:** `Thống kê tỉ lệ hoàn đơn/hủy đơn so với doanh thu để cải thiện dịch vụ.`
+*   **Dự báo CS:** `Đợt sale sắp tới dự kiến sẽ có bao nhiêu khách hàng quay lại mua?` (Chuẩn bị nhân sự trực chat).
 
 ---
 
-## 📊 Hằng tháng — "Tệp khách có khoẻ không?"
+## 🚀 Thao tác quyền năng (Full MCP)
 
-| Khi bạn… | Hỏi AI… | Bạn sẽ thấy… |
-|----------|---------|--------------|
-| Chạy campaign win-back | `Khách nào trên 90 ngày không mua?` | Danh sách reactivation — sẵn sàng bắn Zalo ZNS / email |
-| Đánh giá chất lượng CS | `Tóm tắt đơn cần attention + hoàn tháng này` | Số đơn treo, refund, pattern — nhìn lại để cải thiện quy trình |
-
-### 💡 Thói quen gợi ý
-
-```
-📊 Cuối tháng → "Reactivation candidates + review refund"    (15 phút)
-```
-
----
-
-## 🚀 Kịch bản nâng cao
-
-### Firefighting — khách VIP đang bực
+Khi bạn được IT cấp quyền sâu hơn, bạn có thể chỉnh sửa trực tiếp:
 
 ```text
-Khách VIP gọi vào giận vì giao trễ. Tìm đơn gần nhất của SĐT 0912345678, tóm tắt tình trạng, và soạn lời xin lỗi phù hợp.
+Thêm ghi chú "Khách thích mẫu váy tối màu" vào hồ sơ khách hàng Nguyễn Văn A.
 ```
-
-AI sẽ:
-1. Tra khách → tìm đơn gần nhất
-2. Xác định lý do trễ (thiếu vận đơn? kho hết hàng? lỗi thanh toán?)
-3. Soạn script xin lỗi có ngữ điệu phù hợp — không phải "đọc template" vô cảm
-
-### Hoàn tiền nhanh
 
 ```text
-Kiểm tra refund của đơn #100005 và soạn quy trình hoàn tiền nội bộ.
+Gắn tag "KHACH-QUEN" cho tất cả khách hàng đã mua trên 3 đơn.
 ```
 
----
+::: warning ⚠️ Lưu ý cho team CS
+AI giúp bạn tra cứu cực nhanh, nhưng sự chân thành trong giọng nói và câu chữ của bạn mới là thứ giữ chân khách hàng. Dùng kết quả từ AI để **hành động khéo léo** nhất nhé!
+:::
 
-## Liên kết
-
-- [← Chọn vai trò khác](/su-dung-theo-vai-tro)
-- [Bắt đầu trong 3 phút](/cam-tay-chi-viec)
-- [FAQ](/cau-hoi-thuong-gap)
+[← Chọn vai trò khác](/su-dung-theo-vai-tro) · [FAQ cho CS](/cau-hoi-thuong-gap)
