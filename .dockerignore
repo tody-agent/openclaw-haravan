@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.dev.vars
+tests
+coverage
+railway-runtime/node_modules

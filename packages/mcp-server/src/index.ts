@@ -41,7 +41,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const result = await callLeanTool(
       name,
       (toolArgs as Record<string, unknown>) ?? {},
-      haravan
+      haravan,
+      { clientKind: "mcp-stdio" }
     );
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],

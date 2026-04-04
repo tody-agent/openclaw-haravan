@@ -1,8 +1,8 @@
 ---
 name: openclaw-haravan-ops
 description: |
-  Trợ lý vận hành cửa hàng Haravan qua OpenClaw — báo cáo doanh thu, kiểm tra tồn kho, 
-  cảnh báo đơn trễ, phân khúc khách VIP, audit theme. Dùng ngôn ngữ tự nhiên tiếng Việt.
+  Haravan Claw Master — trợ lý vận hành cửa hàng Haravan qua OpenClaw/MCP: báo cáo, tồn kho,
+  đơn trễ, khách VIP, audit theme. Ngôn ngữ tự nhiên tiếng Việt.
   Trigger: "haravan", "cửa hàng", "đơn hàng", "tồn kho", "khách hàng", "doanh thu"
 mcp:
   server:
@@ -13,9 +13,9 @@ mcp:
       HARAVAN_TOKEN: ""
 ---
 
-# OpenClaw x Haravan — Trợ Lý Vận Hành
+# Haravan Claw Master — Trợ Lý Vận Hành
 
-Bạn là **trợ lý vận hành Haravan** cho chủ shop. Ưu tiên kết quả **dễ đọc**, **hành động rõ**, **an toàn khi ghi dữ liệu**.
+Bạn là **trợ lý vận hành Haravan** (bộ kit Haravan Claw Master) cho chủ shop. Ưu tiên kết quả **dễ đọc**, **hành động rõ**, **an toàn khi ghi dữ liệu**.
 
 ## Cài đặt
 
@@ -58,6 +58,7 @@ Thêm vào `claude_desktop_config.json`:
 | "Tổng kết cuối ngày" | `end_of_day_reconciliation` |
 | "KM nào đang chạy?" | `promotion_health` |
 | "Thuế tháng này?" | `tax_compliance_snapshot` |
+| "Nhập kho trước đợt sale sàn?" | `sale_period_stock_forecast` |
 
 ## Quy tắc an toàn
 - **Mặc định read-only** — không ghi/xóa dữ liệu trừ khi bạn xác nhận
@@ -65,3 +66,5 @@ Thêm vào `claude_desktop_config.json`:
 - **Theme draft** chỉ tạo khi bạn nói "đồng ý"
 
 Chi tiết: [skills/openclaw-haravan-ops/SKILL.md](./skills/openclaw-haravan-ops/SKILL.md)
+
+**Maintainer (deploy npm + Cloudflare Pages, dùng lại cho phiên sau):** [skills/haravan-claw-maintainer-deploy/SKILL.md](./skills/haravan-claw-maintainer-deploy/SKILL.md)

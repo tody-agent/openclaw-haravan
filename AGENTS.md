@@ -1,4 +1,6 @@
-# Agent Configuration
+# Agent Configuration — Haravan Claw Master
+
+Monorepo này là **Haravan Claw Master** (tài liệu + skill + plugin/MCP). Tên npm/plugin OpenClaw vẫn **Haravan Ops** / `@haravan-master/openclaw-haravan-ops-plugin`.
 
 ## OpenClaw plugin (khuyến nghị)
 - **Package**: `packages/openclaw-haravan-plugin` → `@haravan-master/openclaw-haravan-ops-plugin`
@@ -16,6 +18,7 @@
 
 ## Skills
 - `skills/openclaw-haravan-ops/SKILL.md` — Main operations skill with routing table
+- `skills/haravan-claw-maintainer-deploy/SKILL.md` — Reusable checklist: publish `@haravan-master/*` to npm + deploy VitePress docs to Cloudflare Pages
 
 ## CI / test gate
 
@@ -25,6 +28,10 @@
 - **Secrets:** never commit `.env` / `.dev.vars`; copy [`.dev.vars.example`](.dev.vars.example) to `.dev.vars` locally. CI uses `gitleaks/gitleaks-action` + `security:scan`.
 
 **Maintainer (GitHub):** In *Settings → Branches*, consider requiring the **CI / `verify`** check before merge to `main` once the workflow has run at least once on the default branch.
+
+## Docs on Cloudflare Pages (optional, direct)
+
+- Deploy từ máy: `CLOUDFLARE_PAGES_PROJECT=<name> npm run docs:deploy:cf` (Wrangler; xem `docs/deploy-cloudflare-pages.md`). Không dùng GitHub Actions cho Cloudflare trong repo.
 
 ## Quick Test
 ```bash

@@ -1,5 +1,5 @@
 # Secret Shield — Gitleaks (extends defaults + project allowlist)
-title = "openclaw-haravan"
+title = "Haravan Claw Master (openclaw-haravan)"
 
 [extend]
 useDefault = true

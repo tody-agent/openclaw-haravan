@@ -1,86 +1,117 @@
 ---
 layout: home
-title: OpenClaw x Haravan — Trợ lý vận hành shop bằng AI
+title: Haravan Claw Master — Hỏi một câu, thấy cả shop
 description: >-
-  Cài plugin hoặc MCP, hỏi tiếng Việt: đơn hàng, tồn kho, thuế, khuyến mãi, theme.
-  Composite tool + API bridge (`haravan_*`) cho chủ shop và team vận hành Haravan.
+  Trợ lý AI nói tiếng Việt cho chủ shop Haravan: hỏi "hôm nay bán thế nào" — nhận câu trả lời bám dữ liệu thật.
+  Không cần biết code. Cài plugin, hỏi ngay.
 keywords: >-
-  Haravan, OpenClaw, AI shop, vận hành ecommerce, MCP, plugin Haravan,
-  tồn kho, đơn hàng, tiếng Việt
+  Haravan AI, trợ lý shop, OpenClaw, Haravan Claw Master, vận hành shop bằng AI, tiếng Việt
 head:
   - - meta
     - name: robots
       content: index, follow
   - - meta
     - property: og:title
-      content: OpenClaw x Haravan — Trợ lý vận hành shop bằng AI
+      content: Haravan Claw Master — Hỏi một câu, thấy cả shop
   - - meta
     - property: og:description
-      content: Plugin + MCP. Hỏi bằng tiếng Việt về đơn, tồn, KM, thuế — không cần dashboard phức tạp.
+      content: >-
+        Trợ lý AI nói tiếng Việt cho chủ shop Haravan. Một câu hỏi — tóm tắt đơn, tồn, khuyến mãi.
 hero:
-  name: OpenClaw x Haravan
-  text: Hỏi một câu — thấy cả cửa hàng
+  name: Haravan Claw Master
+  text: Hỏi một câu — biết cả shop
   tagline: >-
-    Khi bạn cần biết đơn có trễ không, tồn có âm không, KM có sắp hết hạn không:
-    nói tiếng Việt với AI, dữ liệu lấy trực tiếp từ Haravan. Plugin OpenClaw (khuyến nghị)
-    hoặc MCP lean cho team đã quen cấu hình env.
+    Bạn không cần mở 5 tab admin mỗi sáng.
+    Chỉ cần hỏi: *"Hôm nay có gì cần lo?"*
+    — AI đọc dữ liệu Haravan của bạn và trả lời ngay, bằng tiếng Việt.
   actions:
     - theme: brand
-      text: Cài plugin OpenClaw
-      link: /plugin-openclaw
+      text: ✨ Bắt đầu trong 3 phút
+      link: /cam-tay-chi-viec
     - theme: alt
-      text: Cài đặt đầy đủ (MCP + skill)
-      link: /cai-dat-va-thiet-lap
-    - theme: alt
-      text: Demo 5 phút
+      text: 🎬 Xem thử 5 phút
       link: /demo-5-phut
+    - theme: alt
+      text: 🔌 Cài plugin OpenClaw
+      link: /plugin-openclaw
 features:
-  - icon: 🔌
-    title: Plugin chuẩn OpenClaw
+  - icon: 💬
+    title: Hỏi bằng tiếng Việt, trả lời bằng số liệu
     details: >-
-      Config `shop` + `accessToken` có schema, token đánh dấu sensitive. Một lệnh
-      `openclaw plugins install -l …` sau khi build — ít sửa JSON tay hơn MCP thuần.
-    link: /plugin-openclaw
-    linkText: Hướng dẫn plugin
+      "Hôm nay bán thế nào?" — AI trả về doanh thu, số đơn, đơn cần chú ý.
+      Không cần học API hay viết code.
+    link: /su-dung-theo-vai-tro
+    linkText: Xem câu hỏi mẫu
   - icon: 🛡️
-    title: Đọc trước, ghi sau
+    title: An toàn — chỉ đọc, không tự ý sửa
     details: >-
-      Mặc định read-only. Tool tạo theme draft cần xác nhận rõ ràng; phù hợp chủ shop
-      và ops không muốn AI “tự ý” sửa production.
-    link: /nang-luc-va-use-cases-theo-vai-tro
-    linkText: Năng lực & use case
+      Mặc định AI chỉ đọc và báo cáo. Muốn sửa theme hay chỉnh kho?
+      Bạn phải xác nhận rõ ràng. Không ai làm thay bạn.
+    link: /lean/safety-disclaimers
+    linkText: Đọc cam kết an toàn
+  - icon: ⚡
+    title: 3 phút cài xong, hỏi ngay
+    details: >-
+      Cài plugin → điền shop + token → hỏi câu đầu tiên.
+      Không cần biết monorepo, TypeScript, hay MCP là gì.
+    link: /cam-tay-chi-viec
+    linkText: Bắt đầu ngay
   - icon: 📊
-    title: Nhiều tool nghiệp vụ + cầu API
+    title: Báo cáo nhanh cho chủ shop, không thay kế toán
     details: >-
-      Tool composite (snapshot ngày, SLA đơn, tồn, KM, thuế ước tính…) cùng bridge
-      `haravan_*` khi cần gọi REST Haravan linh hoạt — không phải tự ghép từng bước tay.
-    link: /lean/playbook-tool-matrix
-    linkText: Ma trận tool (lean)
-  - icon: 🧭
-    title: Tài liệu & kiến trúc
+      Doanh thu ngày, đơn trễ SLA, tồn thấp, khuyến mãi sắp hết hạn —
+      tất cả trong một câu hỏi. Số thuế là ước tính, luôn đối chiếu sổ sách.
+    link: /nang-luc-va-use-cases-theo-vai-tro
+    linkText: Xem năng lực chi tiết
+  - icon: 🎯
+    title: Câu hỏi "đúng việc" cho từng vai trò
     details: >-
-      Sơ đồ package (core, dispatch, MCP, plugin), checklist publish community,
-      FAQ — sẵn cho IT onboard và contributor.
-    link: /architecture
-    linkText: Kiến trúc hệ thống
+      Chủ shop hỏi khác, vận hành hỏi khác, marketing hỏi khác.
+      Copy câu mẫu, dán vào chat, nhận kết quả liền.
+    link: /su-dung-theo-vai-tro
+    linkText: Theo vai trò của bạn
+  - icon: 🌐
+    title: Mã nguồn mở, cộng đồng Việt
+    details: >-
+      MIT license. Góp ý, báo lỗi, chia sẻ cho bạn bè — tất cả trên GitHub.
+    link: /cong-dong-va-chia-se
+    linkText: Tham gia cộng đồng
 ---
 
-## Dành cho ai?
+## Trước và Sau khi dùng Haravan Claw Master
 
-| Bạn là… | Bắt đầu từ đâu |
-|---------|----------------|
-| **Chủ shop / Ops** | [Demo 5 phút](/demo-5-phut) → hỏi thử một câu về đơn hoặc tồn |
-| **Đang dùng OpenClaw** | [Plugin Haravan Ops](/plugin-openclaw) |
-| **IT / tích hợp MCP** | [Cài đặt & thiết lập](/cai-dat-va-thiet-lap) + [Kiến trúc](/architecture) |
+| | ❌ Trước | ✅ Sau |
+|---|---------|-------|
+| **Sáng mở shop** | Mở 5 tab, kéo bảng, export Excel, ghép số tay | Hỏi: *"Hôm nay có gì cần lo?"* — 30 giây thấy tổng quan |
+| **Đơn trễ giao** | Lọc từng trang đơn, đếm tay | Hỏi: *"Đơn nào sắp lỡ SLA?"* — danh sách ưu tiên ngay |
+| **Hết hàng hot** | Phát hiện khi khách order nhưng kho trống | Hỏi: *"SKU nào sắp hết?"* — cảnh báo trước khi quá muộn |
+| **KM chạy lỗ** | Không ai check, chạy đến khi ai đó nhận ra | Hỏi: *"KM nào bất thường?"* — AI phát hiện trùng, hết hạn, lỗ |
 
-::: tip Lời hứa rõ ràng (không thổi phồng)
-Đây là **trợ lý vận hành & cảnh báo sớm**, không thay kế toán hay cam kết SLA sàn thay bạn. Thuế và P&L trong tool là **ước tính / nhắc việc** — luôn đối chiếu quy định và sổ sách thực tế.
+## Bạn là ai? Bắt đầu từ đây
+
+| Bạn là… | Bắt đầu nhanh |
+|---------|---------------|
+| 🆕 **Mới hoàn toàn** | [Bắt đầu trong 3 phút](/cam-tay-chi-viec) → [Xem thử 5 phút](/demo-5-phut) |
+| 🏪 **Chủ shop / vận hành** | [Câu hỏi theo vai trò](/su-dung-theo-vai-tro) |
+| 🔌 **Đang dùng OpenClaw** | [Cài plugin Haravan Ops](/plugin-openclaw) |
+| 💻 **Dùng Cursor / Claude + MCP** | [Cài đặt kỹ thuật](/cai-dat-va-thiet-lap) |
+
+## Thử ngay — copy câu này vào chat
+
+```text
+Hôm nay shop bán thế nào? Có đơn nào cần chú ý không?
+```
+
+```text
+Có SKU nào tồn thấp hoặc sắp hết không?
+```
+
+```text
+Khuyến mãi nào đang chạy mà có dấu hiệu bất thường?
+```
+
+::: tip 💡 Giá trị thực tế — không thổi phồng
+Đây là **trợ lý tóm tắt & cảnh báo sớm**. Không thay kế toán, không cam kết SLA thay bạn. Số thuế / lợi nhuận là **ước tính** — luôn đối chiếu Haravan admin và sổ sách.
 :::
 
-## Câu hỏi mẫu (copy — paste vào chat)
-
-- *“Hôm nay shop bán thế nào, có đơn nào cần chú ý không?”*
-- *“Có variant nào tồn âm hoặc sắp hết không?”*
-- *“Khuyến mãi nào sắp hết hạn nhưng vẫn đang bật?”*
-
-[Xem thêm theo vai trò](/su-dung-theo-vai-tro) · [FAQ](/cau-hoi-thuong-gap)
+[Xem thêm câu hỏi mẫu](/su-dung-theo-vai-tro) · [FAQ](/cau-hoi-thuong-gap) · [Bản đồ tài liệu](/bo-tai-lieu)

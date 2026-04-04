@@ -9,6 +9,7 @@ dist/
 .secret-lifecycle.json
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+.wrangler/
 .DS_Store
 .idea/
 *.pem

@@ -4,53 +4,90 @@ import { defineConfig } from "vitepress";
 const base = process.env.VITEPRESS_BASE ?? "/";
 
 export default defineConfig({
-  title: "OpenClaw x Haravan",
-  description: "Trợ lý vận hành Haravan cho nhóm non-tech",
+  title: "Haravan Claw Master",
+  description:
+    "Hỏi tiếng Việt — AI trả lời bám dữ liệu shop Haravan. Cài plugin, hỏi ngay, không cần biết code.",
   lang: "vi",
   base,
   cleanUrls: true,
   themeConfig: {
     nav: [
       { text: "Trang chủ", link: "/" },
-      { text: "Plugin OpenClaw", link: "/plugin-openclaw" },
-      { text: "Cài đặt", link: "/cai-dat-va-thiet-lap" },
-      { text: "Kiến trúc", link: "/architecture" },
-    ],
-    sidebar: [
       {
         text: "Bắt đầu",
         items: [
+          { text: "Bắt đầu trong 3 phút", link: "/cam-tay-chi-viec" },
+          { text: "Bản đồ tài liệu", link: "/bo-tai-lieu" },
+          { text: "Cài plugin OpenClaw", link: "/plugin-openclaw" },
+          { text: "Cài đặt kỹ thuật", link: "/cai-dat-va-thiet-lap" },
+          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
+        ],
+      },
+      {
+        text: "Dùng hằng ngày",
+        items: [
+          { text: "Câu hỏi theo vai trò", link: "/su-dung-theo-vai-tro" },
+          { text: "AI làm được gì?", link: "/nang-luc-va-use-cases-theo-vai-tro" },
+          { text: "Danh mục Ops Tools", link: "/api-ops-tools" },
+          { text: "Personas", link: "/personas" },
+          { text: "JTBD", link: "/jtbd" },
+          { text: "FAQ", link: "/cau-hoi-thuong-gap" },
+        ],
+      },
+      { text: "Cộng đồng", link: "/cong-dong-va-chia-se" },
+    ],
+    sidebar: [
+      {
+        text: "Bắt đầu nhanh",
+        items: [
+          { text: "Trang chủ", link: "/" },
+          { text: "Bắt đầu trong 3 phút", link: "/cam-tay-chi-viec" },
+          { text: "Bản đồ tài liệu", link: "/bo-tai-lieu" },
           { text: "Plugin Haravan Ops", link: "/plugin-openclaw" },
-          { text: "Deploy & chia sẻ plugin", link: "/deploy-openclaw-plugin" },
-          { text: "Cài đặt & Thiết lập", link: "/cai-dat-va-thiet-lap" },
-          { text: "Demo 5 phút", link: "/demo-5-phut" },
-          { text: "Sử dụng theo vai trò", link: "/su-dung-theo-vai-tro" },
+          { text: "Cài đặt kỹ thuật", link: "/cai-dat-va-thiet-lap" },
+          { text: "Xem thử 5 phút", link: "/demo-5-phut" },
         ],
       },
       {
-        text: "Kỹ thuật",
+        text: "Dùng hằng ngày",
         items: [
-          { text: "Kiến trúc", link: "/architecture" },
-          { text: "Phân tích codebase", link: "/analysis" },
-          { text: "Playbook ideas", link: "/playbook-ideas" },
-          { text: "Lean playbook", link: "/lean/README" },
-        ],
-      },
-      {
-        text: "Nâng cao",
-        items: [
+          { text: "Câu hỏi theo vai trò", link: "/su-dung-theo-vai-tro" },
           {
-            text: "Năng lực & Use Cases",
+            text: "AI làm được gì?",
             link: "/nang-luc-va-use-cases-theo-vai-tro",
           },
-          { text: "Câu hỏi thường gặp", link: "/cau-hoi-thuong-gap" },
-          { text: "Gói phân phối cục bộ", link: "/goi-phan-phoi-cuc-bo" },
+          { text: "Danh mục Ops Tools", link: "/api-ops-tools" },
+          { text: "Demo & kịch bản mẫu", link: "/demo-seed-va-kich-ban-demo" },
+        ],
+      },
+      {
+        text: "Hiểu thêm",
+        items: [
+          { text: "Personas", link: "/personas" },
+          { text: "JTBD", link: "/jtbd" },
+          { text: "FAQ", link: "/cau-hoi-thuong-gap" },
+          { text: "Cam kết an toàn", link: "/lean/safety-disclaimers" },
+          { text: "Cộng đồng & chia sẻ", link: "/cong-dong-va-chia-se" },
+        ],
+      },
+      {
+        text: "Kỹ thuật (IT/Dev)",
+        collapsed: true,
+        items: [
+          { text: "Phân tích codebase", link: "/analysis" },
+          { text: "Kiến trúc kỹ thuật", link: "/architecture" },
         ],
       },
     ],
     search: { provider: "local" },
     footer: {
-      message: "MIT · OpenClaw x Haravan",
+      message: "MIT · Haravan Claw Master",
     },
+    socialLinks: [
+      {
+        icon: "github",
+        link: "https://github.com/tody-agent/openclaw-haravan",
+      },
+    ],
   },
 });

@@ -14,8 +14,8 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "@haravan-master/core": "*",
-    "@haravan-master/haravan-ops-dispatch": "*",
+    "@haravan-master/core": "^1.0.0",
+    "@haravan-master/haravan-ops-dispatch": "^0.1.0",
     "@sinclair/typebox": "^0.34.28",
     "openclaw": "2026.4.2"
   },

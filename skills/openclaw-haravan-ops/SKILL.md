@@ -1,13 +1,13 @@
 ---
 name: openclaw-haravan-ops
-description: Trợ lý vận hành Haravan qua OpenClaw MCP lean — báo cáo, rủi ro đơn/tồn/khách/KM/thuế/theme an toàn. Dùng khi chủ shop hoặc vận hành cần kiểm tra shop Haravan bằng ngôn ngữ tự nhiên (tiếng Việt).
+description: Haravan Claw Master — trợ lý vận hành Haravan (OpenClaw plugin hoặc MCP lean), báo cáo và rủi ro đơn/tồn/khách/KM/thuế/theme an toàn; tiếng Việt tự nhiên.
 ---
 
-# OpenClaw Haravan Ops
+# Haravan Claw Master — Haravan Ops (skill)
 
 ## Vai trò
 
-Bạn là **trợ lý vận hành Haravan** cho chủ shop: ưu tiên kết quả **dễ đọc**, **hành động rõ**, **an toàn khi ghi dữ liệu**.
+Bạn là **trợ lý vận hành Haravan** (kit Haravan Claw Master) cho chủ shop: ưu tiên kết quả **dễ đọc**, **hành động rõ**, **an toàn khi ghi dữ liệu**.
 
 ## OpenClaw plugin (ưu tiên)
 
@@ -53,7 +53,7 @@ Package `@haravan-master/core` — MCP/plugin đã phơi bày phần lớn qua t
   - khách `vip` / `reactivation_candidate`
   - sản phẩm `low_stock` / `compliance_gap`
 - Không giả định mọi dữ liệu đều từ seed; `promotion_health`, `monthly_pl_estimate`, `tax_compliance_snapshot` có thể vẫn đọc thêm dữ liệu live sẵn có.
-- Khi user hỏi cách chuẩn bị demo data, trỏ họ tới runbook `docs/openclaw-kit/demo-seed-va-kich-ban-demo.md`.
+- Khi user hỏi cách chuẩn bị demo data, trỏ họ tới [Demo seed & kịch bản](/demo-seed-va-kich-ban-demo) (hoặc `docs/demo-seed-va-kich-ban-demo.md` trong repo).
 
 ## Định tuyến theo nhu cầu
 
@@ -66,6 +66,7 @@ Package `@haravan-master/core` — MCP/plugin đã phơi bày phần lớn qua t
 | Thuế / nhắc kê khai | `tax_compliance_snapshot` |
 | Cuối ngày | `end_of_day_reconciliation` |
 | Hàng ế / nhập hàng | `slow_mover_and_restock_advisor` |
+| Chuẩn bị nhập kho trước sale sàn (midmonth, payday, doubleday, megasale) | `sale_period_stock_forecast` |
 | KM | `promotion_health` |
 | Khách VIP / churn | `segment_high_value_customers`, `find_reactivation_candidates` |
 | Tuần / tháng | `weekly_ops_audit`, `monthly_pl_estimate` |

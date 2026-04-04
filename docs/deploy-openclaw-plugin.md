@@ -9,6 +9,8 @@ robots: index, follow
 
 # Deploy & chia sẻ plugin OpenClaw (community)
 
+Phần **Haravan Claw Master** trên registry vẫn là package **Haravan Ops** (`@haravan-master/openclaw-haravan-ops-plugin`) — không đổi lệnh cài.
+
 Tài liệu này dành cho **maintainer** (publish) và **người dùng** (cài từ registry). Chi tiết manifest và cấu hình: [plugin-openclaw.md](./plugin-openclaw.md).
 
 ## Người dùng cộng đồng: cài nhanh

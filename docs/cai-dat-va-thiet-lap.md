@@ -7,6 +7,10 @@ keywords: "openclaw lean install, openclaw haravan 1 lệnh, doctor openclaw"
 
 # Cài OpenClaw lean
 
+::: info Haravan Claw Master
+Muốn **checklist từng bước** (không cần đọc hết trang này ngay)? Vào [Cầm tay chỉ việc](/cam-tay-chi-viec) hoặc [Bản đồ tài liệu](/bo-tai-lieu).
+:::
+
 :::tip Chọn đúng lane
 Trang này có **3 lane**:
 - **Plugin OpenClaw** (khuyến nghị nếu bạn dùng OpenClaw gateway): cấu hình `shop` + `accessToken` trong plugin
@@ -74,22 +78,27 @@ Sau khi cài xong, khởi động lại app và thử:
 | Quyền Admin Haravan | Lấy token |
 | Source repo hoặc gói release | Để chạy build / package |
 
-### Build từ source
+### Build từ source (monorepo)
 
 ```bash
+git clone https://github.com/tody-agent/openclaw-haravan.git
+cd openclaw-haravan
 npm install
-npm run build --workspace @haravan-master/core
-npm run build --workspace @haravan-master/openclaw-haravan-ops-mcp
+npm run build --workspaces --if-present
 ```
 
-### Gắn MCP bằng đường dẫn local
+File chạy MCP sau build: **`packages/mcp-server/dist/index.js`** (trong thư mục repo).
+
+### Gắn MCP — đường dẫn local (sau `npm run build`)
+
+Thay `/DUONG-DAN/openclaw-haravan` bằng đường dẫn tuyệt đối tới repo trên máy bạn:
 
 ```json
 {
   "mcpServers": {
     "openclaw-haravan-ops": {
       "command": "node",
-      "args": ["/DUONG-DAN/repo/apps/openclaw-haravan-ops-mcp/dist/index.js"],
+      "args": ["/DUONG-DAN/openclaw-haravan/packages/mcp-server/dist/index.js"],
       "env": {
         "HARAVAN_SHOP": "ten-shop.myharavan.com",
         "HARAVAN_TOKEN": "YOUR_TOKEN"
@@ -98,6 +107,27 @@ npm run build --workspace @haravan-master/openclaw-haravan-ops-mcp
   }
 }
 ```
+
+### Gắn MCP — từ npm (khi `@haravan-master/openclaw-haravan-ops-mcp` đã publish)
+
+Dùng `npx` để luôn lấy bản mới nhất (hoặc cài global tuỳ bạn):
+
+```json
+{
+  "mcpServers": {
+    "openclaw-haravan-ops": {
+      "command": "npx",
+      "args": ["-y", "@haravan-master/openclaw-haravan-ops-mcp"],
+      "env": {
+        "HARAVAN_SHOP": "ten-shop.myharavan.com",
+        "HARAVAN_TOKEN": "YOUR_TOKEN"
+      }
+    }
+  }
+}
+```
+
+*(Nếu client MCP của bạn không hỗ trợ `npx`, cài gói vào project và trỏ `node` tới `node_modules/@haravan-master/openclaw-haravan-ops-mcp/dist/index.js`.)*
 
 ### Verify
 
@@ -115,10 +145,8 @@ npm run verify
 
 (Lệnh trên chạy quét bảo mật nhẹ + build toàn monorepo + build VitePress + Vitest — trùng với job CI trên GitHub.)
 
-Nếu team bạn muốn bản đóng gói offline, xem [Gói IT](/goi-phan-phoi-cuc-bo).
-
-## Liên kết
+## Liên kết (người dùng)
 
 - [Theo vai trò](/su-dung-theo-vai-tro)
 - [FAQ](/cau-hoi-thuong-gap)
-- [Lean playbook README](/lean/README)
+- [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro)

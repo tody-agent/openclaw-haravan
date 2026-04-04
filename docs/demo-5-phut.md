@@ -1,182 +1,127 @@
 ---
-title: "Demo 5 phút — MCP + Skills trên partner-hailm"
-description: "Kịch bản demo nhanh 5 phút cho Haravan Master full MCP + OpenClaw skills trên shop partner-hailm."
-robots: "noindex, nofollow"
-keywords: "demo haravan mcp, demo openclaw haravan, partner-hailm demo"
+title: "Xem thử 5 phút — AI trả lời shop bạn thế nào"
+description: "Kịch bản demo tự xem: hỏi 5 câu, thấy 5 nhóm giá trị từ dữ liệu shop Haravan thật."
+robots: "index, follow"
+keywords: "demo haravan ai, thử nghiệm haravan claw, xem trước ai shop, demo 5 phút"
 ---
 
-# Demo 5 phút — MCP + Skills trên `partner-hailm`
+# Xem thử 5 phút
 
-> File này là **kịch bản demo ngắn** để mở ra và trình diễn ngay. Dữ liệu dưới đây đã được seed thật trên shop `partner-hailm.myharavan.com`.
+> Bạn đã cài xong ([chưa cài? bắt đầu ở đây](/cam-tay-chi-viec)). Bây giờ hãy thử 5 câu dưới đây — mỗi câu cho bạn thấy một nhóm giá trị khác nhau.
 
-## Mục tiêu demo
+---
 
-- Chứng minh `full MCP` có thể **ghi dữ liệu thật**
-- Chứng minh `OpenClaw skills` có thể **đọc và kể chuyện business**
-- Cho người xem thấy rõ 4 nhóm giá trị:
-  - báo cáo nhanh
-  - đơn cần chú ý
-  - bất thường sản phẩm / giá / tồn
-  - phân nhóm khách hàng
+## 1. 📊 "Hôm nay bán thế nào?"
 
-## Dữ liệu demo đã có
-
-### Batch 1
-
-- Product: `DEMO_HAILM_20260403 Hero Tee`
-- Product: `DEMO_HAILM_20260403 Low Stock Polo`
-- Product: `DEMO_HAILM_20260403 Compliance Hoodie`
-- Customer: `demo_hailm_20260403-vip@example.com`
-- Customer: `demo_hailm_20260403-reactivation@example.com`
-- Order: `#100001` paid + fulfilled
-- Order: `#100002` pending + not fulfilled
-- Order: `#100003` pending + not fulfilled
-
-### Batch 2
-
-- Product: `DEMO_HAILM_EXTRA_20260403 Flash Sale Jacket`
-- Customer: `demo_hailm_extra_20260403@example.com`
-- Order: `#100004` paid + fulfilled
-- Order: `#100005` pending + not fulfilled
-
-## Kịch bản nói demo
-
-### 1. Mở màn: “Tôi không cần nói tên API”
-
-Nói với người xem:
-
-> “Ở đây tôi không gọi endpoint hay viết query. Tôi chỉ nói chuyện với AI theo ngôn ngữ kinh doanh.”
-
-Prompt:
+Dán vào chat:
 
 ```text
-Cho tôi báo cáo kinh doanh ngày hôm nay (2026-04-03).
+Cho tôi báo cáo kinh doanh ngày hôm nay.
 ```
 
-Kỳ vọng:
+**Bạn sẽ thấy:**
+- Tổng doanh thu
+- Số đơn hàng
+- Giá trị đơn trung bình (AOV)
+- Số đơn cần chú ý (chưa thanh toán / chưa giao)
 
-- `customerCount`: `4`
-- `orderCount`: `5`
-- `grossRevenue`: `943000`
-- `attentionOrdersCount`: `3`
+**Điểm hay:** Một câu thay vì mở 3-4 trang admin. Số liệu cập nhật tức thì từ shop.
 
-Điểm nên nhấn:
+---
 
-- AI đã đọc được dữ liệu vừa seed
-- Top product đang có cả hàng bán tốt lẫn hàng có vấn đề
-
-## 2. Flow vận hành: đơn nào đang cần xử lý?
-
-Prompt:
+## 2. 📦 "Đơn nào cần xử lý?"
 
 ```text
 Có đơn nào cần chú ý thanh toán hoặc chưa giao không?
 ```
 
-Kỳ vọng:
+**Bạn sẽ thấy:**
+- Danh sách đơn chưa thanh toán
+- Đơn chưa fulfillment (chưa giao)
+- Lý do cụ thể: `chưa thanh toán`, `thiếu mã vận đơn`…
 
-- Có `4` attention orders
-- Ít nhất thấy rõ 3 đơn:
-  - `#100002`
-  - `#100003`
-  - `#100005`
+**Điểm hay:** Thay vì lọc từng trang đơn hàng, AI liệt kê và sắp xếp theo ưu tiên.
 
-Điểm nên nhấn:
+---
 
-- Đây là flow COO / CS / vận hành
-- AI không chỉ list đơn mà còn nêu lý do như `financial_not_paid`
-
-## 3. Flow merchandising: phát hiện giá sai và catalog lỗi
-
-Prompt:
+## 3. 💰 "Giá sai hay sản phẩm lỗi?"
 
 ```text
 Quét giá sai và sản phẩm thiếu dữ liệu giúp tôi.
 ```
 
-Kỳ vọng:
+**Bạn sẽ thấy:**
+- Sản phẩm có **giá 0đ** (đăng nhầm?)
+- Sản phẩm **giá bán rẻ hơn giá vốn** (bán lỗ?)
+- Sản phẩm **thiếu ảnh hoặc mô tả**
 
-- `DEMO_HAILM_20260403 Compliance Hoodie` bị `zero_price`
-- `DEMO_HAILM_20260403 Low Stock Polo` bị `compare_below_price`
+**Điểm hay:** Phát hiện lỗi niêm yết trước khi khách thấy. Đặc biệt hữu ích khi có nhiều người quản lý catalog.
 
-Điểm nên nhấn:
+---
 
-- Dữ liệu demo được seed có chủ đích
-- AI trả ra anomaly mà team business hiểu ngay, không cần đọc DB
-
-## 4. Flow CRM: khách hàng giá trị cao
-
-Prompt:
+## 4. 👑 "Khách VIP là ai?"
 
 ```text
 Phân nhóm khách giá trị cao giúp tôi.
 ```
 
-Kỳ vọng:
+**Bạn sẽ thấy:**
+- Top khách hàng theo tổng chi tiêu
+- Gợi ý phân nhóm cho remarketing / chăm sóc
+- Khách lâu không mua (dormant) — tiềm năng kéo lại
 
-- `Demo VIP`: `398000`
-- `Demo FlashSale`: `297000`
+**Điểm hay:** Có thể dùng ngay cho sales, CRM, bắn Zalo ZNS, hoặc email marketing.
 
-Điểm nên nhấn:
+---
 
-- Có thể dùng ngay cho sales / CRM / remarketing
-- Prompt theo ngôn ngữ business, không theo ngôn ngữ kỹ thuật
-
-## 5. Flow kho: low stock
-
-Prompt:
+## 5. 📉 "SKU nào sắp hết?"
 
 ```text
 SKU nào đang low stock?
 ```
 
-Kỳ vọng:
+**Bạn sẽ thấy:**
+- SKU tồn dưới ngưỡng tối thiểu
+- Phân theo kho (nếu có nhiều location)
+- Cảnh báo oversell (bán khi kho = 0)
 
-- Thấy các SKU demo như:
-  - `DEMO_HAILM_EXTRA_20260403-JACKET-S`
-  - `DEMO_HAILM_20260403-HERO-M`
-  - `DEMO_HAILM_20260403-LOW-L`
+**Điểm hay:** Cảnh báo trước khi hàng hết — tránh mất đơn vì "hết hàng mà không biết".
 
-Điểm nên nhấn:
+---
 
-- Shop live hiện cũng có nhiều SKU low stock thật
-- Bộ demo chèn thêm SKU dễ nhận diện để người xem không bị lẫn
+## Câu chốt
 
-## 6. Câu chốt demo
+> Sức mạnh của bộ này không phải "AI biết đọc API Haravan". Điểm mạnh thực sự là: **bạn chỉ cần nói tiếng Việt — AI tổng hợp và trả lời theo ngôn ngữ kinh doanh, cho từng vai trò trong công ty.**
 
-Bạn có thể chốt bằng câu này:
+---
 
-> “Phần mạnh của bộ này không chỉ là AI đọc dữ liệu Haravan. Điểm mạnh là mình có thể seed, kiểm thử, rồi để AI nói lại thành ngôn ngữ business cho từng vai trò trong công ty.”
-
-## Prompt dự phòng
-
-Nếu cần chạy nhanh thêm 1-2 prompt:
+## Muốn hỏi thêm?
 
 ```text
 Kiểm tra rủi ro theme hiện tại.
 ```
 
 ```text
-Cho tôi top khách hàng giá trị cao và đơn nào đang cần attention.
-```
-
-```text
 Tóm tắt tình hình hôm nay như một COO.
 ```
 
-## Lưu ý khi demo
+```text
+Khuyến mãi nào đang bất thường?
+```
 
-- `theme draft` hiện **chưa demo write được** trên shop này vì API tạo theme yêu cầu `src`
-- `reactivation` hiện chưa đẹp vì tool đang dùng `updated_at` làm proxy
-- Các prompt mạnh nhất hiện tại là:
-  - báo cáo ngày
-  - đơn cần chú ý
-  - anomaly giá
-  - khách giá trị cao
-  - low stock
+---
+
+## Lưu ý
+
+- Số thuế / P&L trong câu trả lời là **ước tính nhắc việc**, không thay kế toán.
+- Các prompt mạnh nhất hiện tại: báo cáo ngày, đơn cần chú ý, anomaly giá, khách VIP, low stock.
+- Xem thêm câu hỏi: [theo vai trò](/su-dung-theo-vai-tro).
+
+---
 
 ## Link liên quan
 
-- [Seed dữ liệu demo & kịch bản trình diễn](/demo-seed-va-kich-ban-demo)
-- [Theo vai trò](/su-dung-theo-vai-tro)
-- [Ma trận tool lean](/lean/playbook-tool-matrix)
+- [Câu hỏi mẫu theo vai trò](/su-dung-theo-vai-tro)
+- [AI làm được gì?](/nang-luc-va-use-cases-theo-vai-tro)
+- [Seed dữ liệu demo (cho IT)](/demo-seed-va-kich-ban-demo)
+- [FAQ](/cau-hoi-thuong-gap)

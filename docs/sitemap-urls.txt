@@ -1,20 +1,18 @@
-# Relative paths for site root (prepend your deployed origin + base)
-# Example: https://USER.github.io/openclaw-haravan/ + path below
+# Site hướng đến người dùng — prepend origin + base khi deploy
 
 /
+/bo-tai-lieu
+/cam-tay-chi-viec
+/personas
+/jtbd
+/cong-dong-va-chia-se
 /cai-dat-va-thiet-lap
 /plugin-openclaw
-/deploy-openclaw-plugin
-/architecture
-/analysis
-/playbook-ideas
 /demo-5-phut
 /demo-seed-va-kich-ban-demo
 /su-dung-theo-vai-tro
 /nang-luc-va-use-cases-theo-vai-tro
 /cau-hoi-thuong-gap
-/goi-phan-phoi-cuc-bo
-/lean/README
-/lean/playbook-tool-matrix
 /lean/safety-disclaimers
-/lean/scheduler-adapters
+
+# Trang maintainer / kỹ thuật vẫn có trong repo (không liệt kê menu): architecture, analysis, deploy-*, lean/*, playbook-ideas, …

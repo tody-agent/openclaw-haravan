@@ -121,7 +121,8 @@ export default definePluginEntry({
           const result = await callLeanTool(
             def.name,
             params as Record<string, unknown>,
-            haravan
+            haravan,
+            { clientKind: "openclaw-plugin" }
           );
           return {
             content: [

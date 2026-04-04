@@ -1,36 +1,29 @@
-# Continuity — openclaw-haravan
+# Continuity — Haravan Claw Master (repo openclaw-haravan)
 
-Last updated: 2026-04-03 (session: docs + Pages deploy)
+Last updated: 2026-04-04 (session: triển khai `sale_period_stock_forecast`)
 
 ## Active goal
 
-Docs landing + kỹ thuật đã có; **bật GitHub Pages** trên remote và merge workflow deploy.
+Ổn định tài liệu / demo nếu cần; tool **sale_period_stock_forecast** đã có trong MCP + plugin (tự lấy từ `LEAN_MCP_TOOLS`).
 
 ## Current phase
 
-**deploying** — workflow `deploy-docs.yml` trong repo; cần enable Pages trên GitHub.
+**shipped** — `sale_period_stock_forecast` + `sale-calendar` + test; `npm run test:gate` pass.
 
 ## Next actions
 
-1. **GitHub:** Repository → Settings → Pages → Source **GitHub Actions**.
-2. Push `main` (hoặc *Run workflow*) để deploy lần đầu.
-3. Tiếp tục publish npm/ClawHub plugin nếu chưa xong.
+1. Tuỳ nhu cầu: bổ sung doc `docs/` (matrix lean, năng lực theo vai trò) nhắc tool mới.
+2. Cloudflare / GitHub Pages như backlog cũ nếu còn.
 
 ## Working context
 
-- **VitePress `base`:** `process.env.VITEPRESS_BASE` — local mặc định `/`, CI dùng `/${{ github.event.repository.name }}/`.
-- **Landing:** `docs/index.md` — hero + features + bảng persona + disclaimer (content framework).
-- **DocKit-style:** `docs/analysis.md`, `docs/architecture.md`, `docs/plugin-openclaw.md`, `docs/sitemap-urls.txt`.
-- **Dead links cũ:** `/openclaw-kit/*` → `/`, `/openclaw-lean/*` → `/lean/*`.
+- **Đã có:** `runSlowMoverAndRestockAdvisor` (`restock-advisor.ts`) — MA theo cửa sổ ngày + days of cover; `find_low_stock_risks`.
+- **Mới:** calendar preset VN sàn — **midmonth** 14–15, **payday** 24–25; **doubleday** mọi ngày d=m (1/1…12/12), mỗi đợt 4 ngày **d−1, d, d+1, d+2**; **megasale** chỉ bốn đợt lớn **9/9, 10/10, 11/11, 12/12** (không gồm 1/1–8/8), mỗi đợt cùng công thức 4 ngày **d−1, d, d+1, d+2**. Forecast đơn giản (baseline MA × uplift); tập trung top ~20% variant theo doanh thu/qty.
+- **Không làm trong v1:** tự động tạo phiếu nhập Haravan (chỉ read-only + khuyến nghị số lượng); ML phức tạp.
 
 ## Just completed
 
-- **CI / test gate:** `npm run verify`, `test:gate`, `security:scan`, `.github/workflows/ci.yml`, Gitleaks, root `test/*`, `scripts/security-scan.mjs`, `.gitleaks.toml`, `.githooks/pre-commit`, `hooks:install`.
-- Docs: `architecture.md` (mục kiểm thử), `README.vi.md` + `cai-dat-va-thiet-lap.md` (contributor), PR template.
-- Landing mở rộng + SEO `head` + features.
-- Sửa dead links toàn `docs/`, thêm `playbook-ideas.md`.
-- `config.mts` nav/sidebar, `cleanUrls`, footer.
-- Workflow deploy Pages (artifact `docs/.vitepress/dist`).
+- Tool **`sale_period_stock_forecast`**: `sale-calendar.ts`, `sale-period-stock-forecast.ts`, MCP + plugin, skill + pack + root SKILL; Vitest sale-calendar + tool-handlers.
 
 ## Mistakes & learnings
 
@@ -39,3 +32,4 @@ Docs landing + kỹ thuật đã có; **bật GitHub Pages** trên remote và me
 ## Key decisions
 
 - GitHub Pages **project site** với base động theo tên repo (không hardcode user org).
+- **Megasale (sale forecast):** chỉ **9/9, 10/10, 11/11, 12/12**; mỗi đợt **4 ngày** d−1, d, d+1, d+2 (lớn hơn / tách biệt với doubleday 1/1–8/8).

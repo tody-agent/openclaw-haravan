@@ -5,13 +5,16 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "prepack": "npm run build",
     "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
-    "@haravan-master/core": "*"
+    "@haravan-master/core": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

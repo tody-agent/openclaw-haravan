@@ -132,6 +132,27 @@ export const LEAN_MCP_TOOLS = [
     },
   },
   {
+    name: "sale_period_stock_forecast",
+    description:
+      "Forecast nhập kho theo lịch sale sàn (midmonth 14–15, payday 24–25, doubleday 1/1–8/8 & megasale 9/9–12/12 cửa sổ 4 ngày), baseline + uplift từ lịch sử, Pareto ~20% SKU (read-only)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        history_days: { type: "number", description: "Ngày lịch sử đơn (mặc định 120)" },
+        horizon_days: { type: "number", description: "Tìm sale trong N ngày tới (mặc định 45)" },
+        order_limit: { type: "number" },
+        product_pages: { type: "number", description: "Số trang SP quét (1–10)" },
+        pareto_pct: { type: "number", description: "Tỷ lệ SKU ưu tiên, mặc định 0.2" },
+        fixed_uplift: {
+          type: "number",
+          description: "Hệ số uplift khi thiếu dữ liệu (tuỳ chọn, 1–5)",
+        },
+        safety_days_cover: { type: "number", description: "Buffer ngày cover sau cửa sổ (mặc định 3)" },
+        as_of: { type: "string", description: "YYYY-MM-DD, mặc định hôm nay UTC" },
+      },
+    },
+  },
+  {
     name: "promotion_health",
     description: "KM sắp hết hạn / có thể hết hạn nhưng vẫn bật (read-only)",
     inputSchema: {

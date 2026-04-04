@@ -108,4 +108,4 @@ npx tsx scripts/seed-demo-via-mcp.ts --prefix DEMO_HAILM
 
 - [Theo vai trò](/su-dung-theo-vai-tro)
 - [Lưu ý an toàn](/lean/safety-disclaimers)
-- [Ma trận tool](/lean/playbook-tool-matrix)
+- [Năng lực & use cases](/nang-luc-va-use-cases-theo-vai-tro)

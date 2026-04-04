@@ -56,8 +56,9 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
 - Báo cáo nhanh theo ngày với `daily_business_snapshot`
 - Audit theo tuần với `weekly_ops_audit`
 - Ước tính P&L tháng với `monthly_pl_estimate`
+- Dự báo rủi ro về thuế `tax_compliance_snapshot`
+- Giám sát bất thường về giá bán `pricing_anomaly_scan`
 - Tóm tắt rủi ro fulfillment, tồn kho, giá sai, khuyến mãi
-- Bóc tách top sản phẩm, đơn VIP, biến động doanh thu, AOV, số lượng đơn
 
 **Use cases tiêu biểu:**
 
@@ -70,12 +71,12 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
    - Kết quả: một bản tóm tắt điều hành, không cần đọc dữ liệu thô.
 
 3. **Kiểm tra sức khỏe tháng**
-   - Hỏi: “Ước tính P&L tháng này và chỗ nào cần kế toán xác nhận.”
+   - Hỏi: “Ước tính P&L tháng này và kiểm tra rủi ro thuế/hoá đơn cần phòng bị.”
    - Kết quả: số liệu thô để định hướng, có disclaimer rõ.
 
-4. **Phát hiện anomaly**
-   - Hỏi: “Có gì bất thường về doanh thu, đơn hàng hay sản phẩm không?”
-   - Kết quả: doanh thu rơi, đơn giá trị cao bất thường, sản phẩm giá 0, SKU sắp cháy hàng.
+4. **Phát hiện anomaly & lỗi vận hành**
+   - Hỏi: “Có gì bất thường về giá bán (pricing anomaly) hay sản phẩm không tuân thủ (product compliance) không?”
+   - Kết quả: sản phẩm giá 0, thay đổi giá bất thường, sản phẩm lỗi hiển thị.
 
 **Lớp công cụ nên dùng:**
 
@@ -96,13 +97,10 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
 
 **Năng lực nổi bật của bộ kit:**
 
-- `order_sla_and_fulfillment_risks`
-- `find_unfulfilled_orders`
-- `find_orders_needing_attention`
-- `inventory_oversell_and_anomalies`
-- `find_low_stock_risks`
-- `slow_mover_and_restock_advisor`
-- `end_of_day_reconciliation`
+- Về đơn hàng chuẩn bị trễ: `order_sla_and_fulfillment_risks`, `find_unfulfilled_orders`, `find_orders_needing_attention`
+- Về Tồn kho nguy hiểm: `inventory_oversell_and_anomalies`, `find_low_stock_risks`
+- Về Quản trị nhập hàng: `slow_mover_and_restock_advisor`, `sale_period_stock_forecast`
+- Về Chốt số liệu kho: `end_of_day_reconciliation`, `product_compliance_scan`
 - Trong bản full: `list_fulfillments`, `create_fulfillment`, `adjust_inventory`, `set_inventory`
 
 **Use cases tiêu biểu:**
@@ -111,13 +109,13 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
    - Hỏi: “Có đơn nào sắp lỡ SLA hoặc chưa giao không?”
    - Kết quả: danh sách đơn critical, lý do, mức ưu tiên xử lý.
 
-2. **Stockout radar**
-   - Hỏi: “SKU nào đang low stock hoặc dễ oversell?”
-   - Kết quả: danh sách SKU dưới ngưỡng, tồn âm, rủi ro oversell.
+2. **Stockout radar & Chuẩn bị sale**
+   - Hỏi: “SKU nào đang low stock hoặc dễ oversell? Gợi ý hàng hoá (stock forecast) cho đợt Mega Sale sắp tới.”
+   - Kết quả: danh sách SKU dưới ngưỡng, tồn âm, ước tính số lượng cần nhập cho sale.
 
 3. **Restock và slow movers**
    - Hỏi: “Gợi ý nhập hàng và chỉ ra mặt hàng chạy chậm trong 28 ngày.”
-   - Kết quả: chỗ cần bơm hàng và chỗ nên giảm tồn.
+   - Kết quả: chỗ cần bơm hàng và chỗ nên giảm tồn (Restock Advisor).
 
 4. **Đối soát cuối ngày**
    - Hỏi: “Chốt sổ cuối ngày giúp tôi.”
@@ -143,9 +141,10 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
 
 **Năng lực nổi bật của bộ kit:**
 
-- `segment_high_value_customers`
+- `segment_high_value_customers` (Tính LTV / Value khách hàng)
 - `find_reactivation_candidates`
-- `promotion_health`
+- `promotion_health_check` (Giám sát mã giảm giá lỗi, kém hiệu quả)
+- `sale_period_stock_forecast` (Hỗ trợ định hình sản phẩm đẩy flash sale)
 - Trong bản full: phân tích abandoned checkout, tra khách, đếm tệp, cập nhật tag khách, hỗ trợ cross-sell / upsell
 
 **Use cases tiêu biểu:**
@@ -439,4 +438,4 @@ Nếu chỉ cần một câu để mô tả với khách hàng hoặc nội bộ
 - [Trang tổng OpenClaw kit](/)
 - [Hướng dẫn theo vai trò](/su-dung-theo-vai-tro)
 - [Seed dữ liệu demo & kịch bản trình diễn](/demo-seed-va-kich-ban-demo)
-- [Ma trận tool lean](/lean/playbook-tool-matrix)
+- [Sử dụng theo vai trò](/su-dung-theo-vai-tro)

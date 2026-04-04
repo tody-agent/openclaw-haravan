@@ -11,6 +11,7 @@ robots: index, follow
 # Plugin OpenClaw — Haravan Ops
 
 ::: info Tóm tắt 10 giây
+**Haravan Claw Master** (bộ kit) dùng plugin registry tên **Haravan Ops**.  
 **Plugin id:** `haravan-ops` · **Package:** `@haravan-master/openclaw-haravan-ops-plugin`  
 Cấu hình **`shop`** + **`accessToken`** (UI ẩn token nhờ `sensitive`). Tool đăng ký đồng bộ với MCP (`LEAN_MCP_TOOLS`).
 :::
@@ -68,8 +69,8 @@ Các tool `haravan_*` còn lại (địa điểm, đơn, transaction/refund, tag
 
 Quy trình đầy đủ (ClawHub, npm, PR listing) nằm trong file `upgrade_plugin.md` ở root repo trên GitHub (xem bản raw trên remote bạn clone).
 
-## Liên kết nội bộ
+## Liên kết
 
-- [Cài đặt & MCP](/cai-dat-va-thiet-lap) — lane IT / env  
-- [Kiến trúc monorepo](/architecture) — `dispatch`, MCP, plugin  
+- [Cài đặt & MCP](/cai-dat-va-thiet-lap)
 - [FAQ](/cau-hoi-thuong-gap)
+- [Bản đồ tài liệu](/bo-tai-lieu)

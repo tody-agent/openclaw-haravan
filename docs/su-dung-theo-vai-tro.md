@@ -1,128 +1,181 @@
 ---
-title: "Dùng OpenClaw Haravan Ops theo vai trò — Câu mẫu cho business"
-description: "Hướng dẫn chủ shop, vận hành, marketing nói chuyện với AI: báo cáo sáng, đơn hàng, tồn kho, khách VIP, an toàn khi cho phép ghi dữ liệu."
+title: "Câu hỏi mẫu theo vai trò — copy dán mỗi ngày"
+description: "Chủ shop, vận hành, marketing, CS — mỗi vai trò có câu hỏi riêng. Copy vào chat AI, nhận kết quả từ shop Haravan."
 robots: "index, follow"
-keywords: "haravan ai chủ shop, câu lệnh ai haravan, vận hành haravan openclaw, marketing haravan ai"
+keywords: "câu hỏi AI haravan, prompt mẫu chủ shop, vận hành haravan AI, marketing AI haravan"
 ---
 
-# Hướng dẫn theo vai trò
+# Câu hỏi mẫu theo vai trò
 
-:::info Cách đọc trang này
-Mỗi mục dưới đây là **giọng nói** của một vai trong doanh nghiệp. Bạn chỉ việc **copy–chỉnh** câu mẫu cho đúng tên shop / ngày.  
-Danh sách tool chi tiết nằm ở [ma trận playbook](/lean/playbook-tool-matrix) và trong skill `openclaw-haravan-ops` trong repo này (`skills/openclaw-haravan-ops/`).
+> Bạn không cần nhớ tên tool. Chỉ cần **copy câu hỏi** dưới đây, dán vào chat AI, và đọc kết quả. AI tự biết gọi đúng tool.
 
-Nếu bạn muốn xem bản tổng hợp đầy đủ hơn về **năng lực tổng thể, use case, sự khác nhau giữa full MCP và OpenClaw lean theo từng nhóm trách nhiệm**, đọc thêm [Năng lực & use case của bộ kit](/nang-luc-va-use-cases-theo-vai-tro).
+::: info 💡 Nguyên tắc chung
+1. **Hỏi như nói với trợ lý:** "Hôm nay doanh thu?", "Đơn nào chưa giao?" — giọng bình thường, tiếng Việt.
+2. **Đọc trước, sửa sau:** AI chỉ đọc dữ liệu. Việc sửa (theme, kho, tag…) cần bạn xác nhận rõ.
+3. **Số thuế / P&L:** Coi là nhắc việc, không thay kế toán — xem [cam kết an toàn](/lean/safety-disclaimers).
 :::
 
 ---
 
-## Nguyên tắc chung (mọi vai đều nên biết)
+## 🏪 Chủ shop / Giám đốc
 
-1. **Hỏi như nói với trợ lý:** “Hôm nay doanh thu?”, “Đơn nào chưa giao?”, “SKU nào sắp hết?” — không cần tên kỹ thuật.  
-2. **Đọc trước, ghi sau:** Các thao tác **sửa theme, chỉnh kho, gắn tag khách** thường cần bạn **xác nhận rõ** trong chat. Nếu AI hỏi “Bạn có chắc?”, hãy trả lời rõ **Có / Không**.  
-3. **Số thuế & lãi lỗ:** Coi là **hỗ trợ quyết định**, không thay **kế toán** — xem [disclaimer](/lean/safety-disclaimers).
+> **Mục tiêu:** Mỗi sáng 5 phút biết hết, ưu tiên việc quan trọng.
 
-Nếu bạn đang chuẩn bị **demo có dữ liệu mẫu**, seed trước bằng runbook tại [Seed dữ liệu demo & kịch bản trình diễn](/demo-seed-va-kich-ban-demo).
+### Buổi sáng — mở shop
 
----
+```text
+Cho tôi báo cáo nhanh hôm nay: bao nhiêu đơn, doanh thu, có gì cần chú ý?
+```
 
-## Chủ shop / Giám đốc
+**Kỳ vọng:** AI trả về doanh thu ngày, số đơn, đơn chưa thanh toán / chưa giao, AOV.
 
-**Mục tiêu:** một ảnh tổng quan nhanh để ra quyết định, không lạc trong bảng số.
+```text
+So với hôm qua, doanh thu và số đơn thay đổi thế nào?
+```
 
-<details>
-<summary><strong>Câu mẫu — buổi sáng</strong></summary>
+**Kỳ vọng:** So sánh nhanh 2 ngày — tăng/giảm bao nhiêu %.
 
-- “Cho tôi **báo cáo nhanh hôm nay** của shop: bao nhiêu đơn, doanh thu, đơn nào cần chú ý thanh toán.”  
-- “So với hôm qua, **doanh thu và số đơn** thay đổi thế nào?” (nếu tool hỗ trợ so sánh / bạn cung cấp ngày).
+### Rủi ro & vận hành
 
-</details>
+```text
+Có đơn nào sắp lỡ SLA hoặc chưa giao? Liệt kê 5 đơn ưu tiên.
+```
 
-<details>
-<summary><strong>Câu mẫu — rủi ro & vận hành</strong></summary>
+**Kỳ vọng:** Danh sách đơn kèm lý do (chưa thanh toán, chưa có vận đơn, quá hạn giao).
 
-- “Có **đơn nào sắp lỡ SLA** hoặc chưa giao không? Liệt kê 5 đơn ưu tiên.”  
-- “**Tồn kho** có chỗ nào âm hoặc sắp hết không? Gợi ý nhập hàng.”
+```text
+Tồn kho có chỗ nào âm hoặc sắp hết? Gợi ý nhập hàng.
+```
 
-</details>
+**Kỳ vọng:** SKU low stock, SKU oversell, gợi ý restock dựa trên tốc độ bán.
 
-<details>
-<summary><strong>Câu mẫu — tài chính / thuế (ước tính)</strong></summary>
+### Tài chính (ước tính — luôn đối chiếu sổ sách)
 
-- “Tóm tắt **tình hình thuế / nhắc kê khai** theo dữ liệu shop (ghi rõ đây là ước tính).”  
-- “Ước tính **P&L tháng** — nhắc tôi chỗ nào cần kế toán xác nhận.”
+```text
+Ước tính P&L tháng này — nhắc chỗ nào cần kế toán xác nhận.
+```
 
-</details>
+```text
+Tóm tắt rủi ro thuế theo dữ liệu shop (ghi rõ đây là ước tính).
+```
 
-**Gợi ý thói quen:** 5–10 phút đầu ngày + 5 phút cuối ngày với câu kiểu “**Chốt sổ cuối ngày**” nếu pack của bạn có workflow tương ứng.
+### 💡 Thói quen gợi ý
 
----
-
-## Người vận hành / Kho / Chăm sóc khách
-
-**Mục tiêu:** xử lý đơn, ship, kho, khiếu nại — ít click admin hơn.
-
-<details>
-<summary><strong>Đơn hàng & giao hàng</strong></summary>
-
-- “Liệt kê đơn **chưa giao** hoặc **chưa có mã vận đơn**, ưu tiên theo thời gian.”  
-- “Đơn **huỷ / hoàn** tuần này có pattern gì không?”
-
-</details>
-
-<details>
-<summary><strong>Tồn kho</strong></summary>
-
-- “SKU nào **sắp hết** dưới ngưỡng X? Gom theo kho nếu có.”  
-- “Có **oversell** hoặc tồn âm không? Chỉ ra từng SKU.”
-
-</details>
-
-<details>
-<summary><strong>Khách hàng</strong></summary>
-
-- “Tìm khách theo **SĐT …** và tóm tắt lịch sử mua.”  
-- “Ai là **khách mua nhiều nhất** 30 ngày qua?”
-
-</details>
+**5 phút sáng:** Báo cáo nhanh + đơn cần chú ý  
+**5 phút chiều:** "Chốt sổ cuối ngày" — đối soát đơn + tồn kho
 
 ---
 
-## Marketing / Chăm sóc tệp khách
+## 📦 Vận hành / Kho / CS
 
-**Mục tiêu:** phân nhóm khách, phát hiện khách “ngủ quên”, health của khuyến mãi.
+> **Mục tiêu:** Xử lý đơn, ship, kho, khiếu nại — ít click admin hơn.
 
-<details>
-<summary><strong>Tệp khách & VIP</strong></summary>
+### Đơn hàng & giao hàng
 
-- “Phân nhóm **khách giá trị cao** và gợi ý chiến dịch chăm sóc.”  
-- “Tìm **khách lâu không mua** để nhắc remarketing.”
+```text
+Liệt kê đơn chưa giao hoặc chưa có mã vận đơn, ưu tiên theo thời gian.
+```
 
-</details>
+**Kỳ vọng:** Danh sách đơn unfulfilled, sắp xếp theo cũ nhất trước.
 
-<details>
-<summary><strong>Khuyến mãi</strong></summary>
+```text
+Đơn huỷ và hoàn tuần này có pattern gì không?
+```
 
-- “**Khuyến mãi đang chạy** có bất thường (dùng ít, lỗ, trùng)?”  
-- “Gợi ý điều chỉnh **giá / combo** dựa trên dữ liệu bán.”
+**Kỳ vọng:** Tổng hợp lý do huỷ/hoàn, nhận diện trend (nếu có).
 
-</details>
+### Tồn kho
+
+```text
+SKU nào sắp hết dưới 10 cái? Gom theo kho nếu có.
+```
+
+**Kỳ vọng:** Bảng SKU + tồn hiện tại + kho location.
+
+```text
+Có oversell hoặc tồn âm không? Chỉ ra từng SKU.
+```
+
+**Kỳ vọng:** Cảnh báo tức thì nếu có variant đang bán khi kho = 0.
+
+### Khách hàng
+
+```text
+Tìm khách theo SĐT 0987654321 và tóm tắt lịch sử mua.
+```
+
+```text
+Top 10 khách mua nhiều nhất 30 ngày qua?
+```
+
+**Kỳ vọng:** Bảng khách + tổng chi + số đơn, sắp xếp theo LTV.
 
 ---
 
-## Giao diện (theme) — chỉ khi bạn thật sự cần
+## 📣 Marketing / Chăm sóc tệp khách
 
-:::danger Thao tác giao diện có thể ảnh hưởng website
-Luôn yêu cầu AI: **chỉ sửa trên bản nháp**, **xem trước**, và **bạn xác nhận** trước khi áp dụng. Đọc thêm [an toàn theme](/lean/safety-disclaimers).
+> **Mục tiêu:** Phân nhóm khách, phát hiện khách "ngủ quên", kiểm tra khuyến mãi.
+
+### Tệp khách & VIP
+
+```text
+Phân nhóm khách giá trị cao và gợi ý chiến dịch chăm sóc.
+```
+
+**Kỳ vọng:** Top khách VIP theo LTV, gợi ý remarketing.
+
+```text
+Tìm khách lâu không mua (trên 90 ngày) để nhắc remarketing.
+```
+
+**Kỳ vọng:** Danh sách khách dormant — có thể bắn Zalo ZNS hoặc email kéo lại.
+
+### Khuyến mãi
+
+```text
+Khuyến mãi đang chạy có bất thường gì không? (dùng ít, lỗ, trùng)
+```
+
+**Kỳ vọng:** Health check KM — mã hết hạn vẫn active, mã trùng, mã ít dùng.
+
+```text
+Quét giá sai và sản phẩm thiếu dữ liệu giúp tôi.
+```
+
+**Kỳ vọng:** Cảnh báo giá 0đ, giá bán < giá vốn, sản phẩm thiếu ảnh/mô tả.
+
+---
+
+## 🎨 Giao diện (theme) — chỉ khi bạn thật sự cần
+
+::: danger ⚠️ Thao tác giao diện có thể ảnh hưởng website
+Luôn yêu cầu AI: **chỉ sửa trên bản nháp**, **xem trước**, và **bạn xác nhận** trước khi áp dụng. Đọc thêm [cam kết an toàn](/lean/safety-disclaimers).
 :::
 
-- “**Kiểm tra rủi ro** theme hiện tại (file quan trọng, bản main…).”  
-- “Tạo **theme bản nháp** tên … để thử thay màu nút Mua — tôi sẽ xác nhận sau khi xem preview.”
+```text
+Kiểm tra rủi ro theme hiện tại (file quan trọng, bản main…).
+```
+
+```text
+Tạo theme bản nháp tên "test-color" để thử đổi màu nút Mua — tôi sẽ xác nhận.
+```
+
+---
+
+## 🔁 Thói quen 5 phút mỗi ngày
+
+| Thời gian | Câu hỏi gợi ý | Mục đích |
+|-----------|---------------|---------|
+| **8:00 sáng** | "Báo cáo nhanh hôm nay" | Nắm bức tranh tổng |
+| **10:00 sáng** | "Đơn nào cần xử lý trước 12h?" | Ưu tiên fulfillment |
+| **14:00 chiều** | "SKU nào sắp hết? KM nào bất thường?" | Phòng ngừa |
+| **17:00 chiều** | "Chốt sổ cuối ngày" | Đối soát + bàn giao ca |
 
 ---
 
 ## Bước tiếp
 
-- [Cài đặt nếu chưa xong](/cai-dat-va-thiet-lap)  
-- [FAQ & xử lý sự cố](/cau-hoi-thuong-gap)  
-- [Trang tổng OpenClaw kit](/)
+- [Cài đặt nếu chưa xong](/cai-dat-va-thiet-lap)
+- [FAQ & xử lý sự cố](/cau-hoi-thuong-gap)
+- [AI làm được gì?](/nang-luc-va-use-cases-theo-vai-tro)
+- [Trang chủ](/)

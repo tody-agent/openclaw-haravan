@@ -23,10 +23,21 @@ describe("callLeanTool", () => {
     });
   });
 
-  test("rejects when Haravan client is missing", async () => {
+  test("rejects when Haravan client is missing (MCP / default)", async () => {
     await expect(
       callLeanTool("daily_business_snapshot", { date: "2026-04-03" }, null)
     ).rejects.toThrow(/HARAVAN_SHOP/);
+  });
+
+  test("rejects when Haravan client is missing (OpenClaw plugin hint)", async () => {
+    await expect(
+      callLeanTool(
+        "daily_business_snapshot",
+        { date: "2026-04-03" },
+        null,
+        { clientKind: "openclaw-plugin" }
+      )
+    ).rejects.toThrow(/shop and accessToken/);
   });
 
   test("rejects unknown tool", async () => {
@@ -90,6 +101,53 @@ describe("callLeanTool", () => {
     const result = await callLeanTool("haravan_list_locations", {}, haravan);
     expect(list).toHaveBeenCalledTimes(1);
     expect(result).toEqual([{ id: 1, name: "Kho A" }]);
+  });
+
+  test("sale_period_stock_forecast aggregates orders and products", async () => {
+    const orders = [
+      {
+        id: 1,
+        created_at: "2026-04-10T10:00:00Z",
+        cancelled_at: null,
+        line_items: [{ variant_id: 99, title: "SKU A", quantity: 2, price: 50 }],
+      },
+      {
+        id: 2,
+        created_at: "2026-04-14T10:00:00Z",
+        cancelled_at: null,
+        line_items: [{ variant_id: 99, title: "SKU A", quantity: 5, price: 50 }],
+      },
+    ];
+    const products = [
+      {
+        id: 1,
+        title: "P1",
+        variants: [{ id: 99, title: "Default", inventory_quantity: 3 }],
+      },
+    ];
+    const listOrders = vi.fn().mockResolvedValue(orders);
+    const listProducts = vi.fn().mockResolvedValue(products);
+    const haravan = {
+      orders: { list: listOrders },
+      products: { list: listProducts },
+    } as any;
+
+    const result = (await callLeanTool(
+      "sale_period_stock_forecast",
+      {
+        history_days: 30,
+        horizon_days: 30,
+        as_of: "2026-04-20",
+        order_limit: 50,
+        product_pages: 1,
+      },
+      haravan
+    )) as { uplift_used: number; top_variants_for_restock: unknown[] };
+
+    expect(listOrders).toHaveBeenCalled();
+    expect(listProducts).toHaveBeenCalled();
+    expect(result.uplift_used).toBeGreaterThanOrEqual(1);
+    expect(Array.isArray(result.top_variants_for_restock)).toBe(true);
   });
 
   test("haravan_com_api GET forwards path", async () => {

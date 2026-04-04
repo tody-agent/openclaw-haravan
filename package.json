@@ -2,7 +2,7 @@
   "name": "openclaw-haravan",
   "version": "1.0.0",
   "private": true,
-  "description": "OpenClaw x Haravan — Trợ lý vận hành cửa hàng Haravan cho nhóm non-tech qua AI Agent.",
+  "description": "Haravan Claw Master — bộ kit OpenClaw + Haravan (plugin, MCP, skill, docs) cho vận hành shop bằng AI.",
   "workspaces": ["packages/*"],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
@@ -12,13 +12,16 @@
     "verify": "npm run security:scan && npm run test:gate",
     "hooks:install": "git config core.hooksPath .githooks",
     "docs:dev": "npx vitepress dev docs",
-    "docs:build": "npx vitepress build docs"
+    "docs:build": "npx vitepress build docs",
+    "docs:build:cf": "VITEPRESS_BASE=/ npx vitepress build docs",
+    "docs:deploy:cf": "node scripts/deploy-cf-pages.mjs"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "esbuild": "^0.27.7",
     "typescript": "^5.3.3",
     "vitest": "^4.1.2",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "wrangler": "^3.114.0"
   }
 }
