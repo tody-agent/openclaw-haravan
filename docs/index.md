@@ -52,10 +52,22 @@ features:
     details: >-
       AI mặc định chỉ có quyền đọc báo cáo. Mọi thay đổi về kho hay giao diện đều cần bạn gật đầu xác nhận. Tiền và hàng luôn trong tầm tay bạn.
     link: /lean/safety-disclaimers
-    linkText: Cam kết an toàn dữ liệu
+    linkText: Mọi dữ liệu đều an toàn
 ---
 
-## Bạn đang quản lý shop, hay bị đống dữ liệu "quản lý" lại?
+## Trải nghiệm "Hỏi một câu, thấu cả shop"
+
+::: tip Trải nghiệm thực tế
+| Báo cáo sáng | Tồn kho rủi ro | Phân khúc VIP |
+| :---: | :---: | :---: |
+| ![Trợ lý Hara báo cáo sáng](./images/Screenshot/IMG_1520.png) | ![Trợ lý báo cáo tồn kho cháy hàng](./images/Screenshot/IMG_1516.png) | ![Trợ lý lọc khách hàng VIP](./images/Screenshot/IMG_1524.png) |
+:::
+
+*Giao diện Trợ Lý Hara trên Telegram: AI tự động phân tích dữ liệu admin và trả lời bằng ngôn ngữ kinh doanh dễ hiểu.*
+
+---
+
+## Bạn muốn AI giúp gì hôm nay? bị đống dữ liệu "quản lý" lại?
 
 Mỗi sáng thức dậy, thay vì tập trung tìm cách tăng doanh thu, bạn lại bị cuốn vào vòng xoáy:
 *   Mở 5-10 tab Admin Haravan để kiểm tra đơn.

@@ -17,8 +17,14 @@ robots: "index, follow"
 | Mục tiêu | Công cụ AI hỗ trợ | Kết quả bạn nhận được |
 |:--- |:--- |:--- |
 | **Giao hàng đúng hẹn** | `order_sla_and_fulfillment_risks` | Danh sách đơn hàng sắp trễ để ưu tiên xử lý |
-| **Kho bãi chuẩn xác** | `find_low_stock_risks`, `inventory_oversell_and_anomalies` | Cảnh báo hết hàng hoặc tồn kho âm (lỗi dữ liệu) |
-| **Dòng hàng thông minh** | `slow_mover_and_restock_advisor` | Biết chính xác món nào nên nhập thêm, món nào nên đẩy đi |
+| **🛒 SKU cháy hàng** | `inventory_oversell_and_anomalies` | Cảnh báo bán âm, hết hàng, hoặc mã lệch kho thực tế. |
+| **📉 Hàng tồn đọng** | `slow_mover_and_restock_advisor` | Giải phóng mặt bằng, đề nghị xả hàng hoặc ngừng nhập mã lỗi. |
+
+::: details 📸 Trực quan: Áp lực nhập hàng (Restock Pressure)
+![Quản lý tồn kho](../images/Screenshot/IMG_1516.png)
+*AI sẽ lọc ra các sản phẩm cháy hàng nhưng vẫn có đơn, giúp bạn điều phối kho kịp thời.*
+:::
+
 | **Chốt sổ an tâm** | `end_of_day_reconciliation` | Đối soát nhanh mọi biến động trong ngày |
 
 ---

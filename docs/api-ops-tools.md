@@ -17,7 +17,7 @@ Lớp full MCP cung cấp tất cả các endpoint thô (`/admin/orders.json`, `
 
 ## 1. Báo cáo & Phân tích Doanh Thu
 
-- **`haravan_daily_business_snapshot`**: Báo cáo tổng quan số liệu kinh doanh hàng ngày (doanh thu, số đơn, AOV, tỷ lệ huỷ). Phân giải tự động giữa online và offline nếu cần.
+- **`haravan_daily_business_snapshot`**: Báo cáo tổng quan số liệu kinh doanh hàng ngày (doanh thu, số đơn, AOV, tỷ lệ huỷ). Phân giải tự động giữa online và offline nếu cần. [[Xem mẫu]](./images/Screenshot/IMG_1520.png)
 - **`haravan_weekly_ops_audit`**: Tóm tắt đánh giá vận hành cho cả tuần với các chỉ số báo động hàng đầu (Top risks). Đóng gói dữ liệu từ nhiều tools khác lại thành bảng báo cáo duy nhất.
 - **`haravan_monthly_pl_estimate`**: Ước tính các khoản thu trong tháng, chi phí hàng nhập, các cảnh báo P&L sơ bộ (không thay thế kế toán) dựa trên `compare_at_price` và các dữ liệu tài chính của Haravan.
 - **`haravan_tax_compliance_snapshot`**: Ước lượng các dòng rủi ro thuế/hóa đơn cần đối soát vào ngày cuối tháng.
@@ -36,15 +36,15 @@ Lớp full MCP cung cấp tất cả các endpoint thô (`/admin/orders.json`, `
 
 ## 4. Quản Trị Tồn Kho (Inventory & Restock)
 
-- **`haravan_inventory_oversell_and_anomalies`**: Cảnh báo tức thì nếu sản phẩm có rủi ro `oversell` (cho phép đặt khi hết tồn) nhưng kho không hứa hẹn cung ứng.
+- **`haravan_inventory_oversell_and_anomalies`**: Cảnh báo tức thì nếu sản phẩm có rủi ro `oversell` (cho phép đặt khi hết tồn) nhưng kho không hứa hẹn cung ứng. [[Xem mẫu]](./images/Screenshot/IMG_1516.png)
 - **`haravan_find_low_stock_risks`**: Danh sách sản phẩm chạm ngưỡng tồn kho tối thiểu.
-- **`haravan_slow_mover_and_restock_advisor`**: Phát hiện tồn kho chết (slow movers) trong quá khứ và đưa ra gợi ý nhập hàng dựa trên biến động tốc độ bán gần nhất.
+- **`haravan_slow_mover_and_restock_advisor`**: Phát hiện tồn kho chết (slow movers) trong quá khứ và đưa ra gợi ý nhập hàng dựa trên biến động tốc độ bán gần nhất. [[Xem mẫu]](./images/Screenshot/IMG_1517.png)
 - **`haravan_sale_period_stock_forecast`**: Thuật toán dự báo số lượng bán ra trong kỳ Mega Sale/Double Day sắp tới, từ đó tính lượng Stock cần Restock gấp đệm kho.
 
 ## 5. Chăm Sóc Khách Hàng / CRM
 
-- **`haravan_segment_high_value_customers`**: Truy xuất/tính toán tức thì chân dung và rổ hàng của top khách VIP (LTV cao).
-- **`haravan_find_reactivation_candidates`**: Lọc nhóm khách ngủ đông (Dormant > 90 days), thích hợp bắn Zalo ZNS hoặc promotion email kéo lại doanh số.
+- **`haravan_segment_high_value_customers`**: Truy xuất/tính toán tức thì chân dung và rổ hàng của top khách VIP (LTV cao). [[Xem mẫu]](./images/Screenshot/IMG_1524.png)
+- **`haravan_find_reactivation_candidates`**: Lọc nhóm khách ngủ đông (Dormant > 90 days), thích hợp bắn Zalo ZNS hoặc promotion email kéo lại doanh số. [[Xem mẫu]](./images/Screenshot/IMG_1528.png)
 
 ---
 

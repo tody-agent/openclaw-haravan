@@ -78,6 +78,11 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
    - Hỏi: “Có gì bất thường về giá bán (pricing anomaly) hay sản phẩm không tuân thủ (product compliance) không?”
    - Kết quả: sản phẩm giá 0, thay đổi giá bất thường, sản phẩm lỗi hiển thị.
 
+::: details Thẩm định hình ảnh: Báo cáo vận hành từ góc nhìn CEO (Mobile)
+![Morning Pulse Audit](./images/Screenshot/IMG_1520.png)
+*Giao diện Trợ Lý Hara trên Telegram đang tổng hợp báo cáo doanh thu, AOV và các rủi ro SLA cực kỳ nguy cấp cho lãnh đạo.*
+:::
+
 **Lớp công cụ nên dùng:**
 
 - `OpenClaw lean` cho nhịp hỏi đáp hằng ngày
@@ -105,9 +110,19 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
 
 **Use cases tiêu biểu:**
 
-1. **SLA audit đầu ngày**
-   - Hỏi: “Có đơn nào sắp lỡ SLA hoặc chưa giao không?”
-   - Kết quả: danh sách đơn critical, lý do, mức ưu tiên xử lý.
+13. **Theo dõi đơn hàng cần chú ý (Attention Needed)**
+   - Hỏi: “Liệt kê các đơn hàng cần tác động thủ công hoặc bị treo quá 24h.”
+   - Kết quả: danh sách mã đơn, thời gian chờ, và lý do (vd: lỗi đồng bộ vận chuyển).
+
+::: details Thẩm định hình ảnh: Quản trị tồn kho & Restock (Mobile)
+![Restock Pressure Monitoring](./images/Screenshot/IMG_1516.png)
+*Trợ lý Hara tự động quét kho, phân loại "Cháy hàng" (Restock Pressure) và "Sắp hết" để COO ra quyết định nhập hàng ưu tiên.*
+:::
+
+::: details Thẩm định hình ảnh: Theo dõi "Hàng đọng" (Dead Stock)
+![Dead Stock Analysis](./images/Screenshot/IMG_1517.png)
+*Hệ thống phát hiện hàng tồn kho quá nhiều nhưng không có lượt bán (Overstock) và đề xuất chạy khuyến mãi giải phóng vốn.*
+:::
 
 2. **Stockout radar & Chuẩn bị sale**
    - Hỏi: “SKU nào đang low stock hoặc dễ oversell? Gợi ý hàng hoá (stock forecast) cho đợt Mega Sale sắp tới.”
@@ -148,6 +163,20 @@ keywords: "openclaw haravan use case, haravan master theo vai trò, ceo coo cmo 
 - Trong bản full: phân tích abandoned checkout, tra khách, đếm tệp, cập nhật tag khách, hỗ trợ cross-sell / upsell
 
 **Use cases tiêu biểu:**
+
+13. **Xây dựng chương trình chăm sóc khách VIP**
+   - Hỏi: “Cho tôi danh bạ email/số điện thoại của 10 khách hàng VIP nhất để chạy campaign riêng.”
+   - Kết quả: danh sách thông tin liên hệ kèm LTV (Lifetime Value).
+
+::: details Thẩm định hình ảnh: Phân khúc khách hàng VIP
+![VIP Segmentation](./images/Screenshot/IMG_1524.png)
+*Trợ lý lọc danh sách Top 10 khách hàng "đáng đồng tiền bát gạo" nhất dựa trên tổng chi tiêu thực tế.*
+:::
+
+::: details Thẩm định hình ảnh: Gợi ý Marketing hành vi
+![Marketing Behavior Advice](./images/Screenshot/IMG_1528.png)
+*Không chỉ lọc khách, trợ lý còn gợi ý cách chạy quảng cáo Facebook Lookalike Audience từ tệp khách hiện có.*
+:::
 
 1. **Tìm khách VIP để chăm sóc**
    - Hỏi: “Phân nhóm khách giá trị cao và gợi ý cách chăm sóc.”

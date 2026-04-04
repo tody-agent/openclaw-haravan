@@ -30,6 +30,11 @@ robots: "index, follow"
 | **☀️ 8:00 Sáng** | `Báo cáo nhanh tình hình shop hôm nay có gì đặc biệt?` | Một cái nhìn 360 độ: Doanh thu, các đơn "critical" cần xử lý, đơn chưa thanh toán. |
 | **🌙 17:00 Chiều** | `Chốt sổ cuối ngày giúp tôi. Có điểm lệch nào không?` | Tổng hợp mọi biến động, giúp bạn an lòng trước khi kết thúc ngày làm việc. |
 
+::: details 📸 Trực quan: Báo cáo sáng từ Trợ lý Hara
+![Báo cáo sáng CEO](../images/Screenshot/IMG_1520.png)
+*Báo cáo ngắn gọn, thấu thị từng ngóc ngách của shop ngay trên lòng bàn tay.*
+:::
+
 ::: tip 💡 Câu hỏi của lãnh đạo
 Hãy thử hỏi: *"Có đơn hàng nào đang bị kẹt quá 24h mà chưa thấy vận chuyển không?"* — AI sẽ giúp bạn giám sát khâu vận hành mà không cần phải đôn đốc từng người.
 :::

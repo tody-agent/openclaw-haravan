@@ -16,7 +16,16 @@ robots: "index, follow"
 
 | Bạn muốn... | AI sẽ thực hiện | Giá trị mang lại |
 |:--- |:--- |:--- |
-| **Biến khách lạ thành quen** | `segment_high_value_customers` | Biết chính xác ai đã chi hàng chục triệu để dành ưu đãi VIP. |
+| **💎 Khách hàng VIP** | `segment_high_value_customers` | Lọc Top 10-20% khách hàng mang lại 80% doanh thu. |
+| **💤 Khách ngủ đông** | `find_reactivation_candidates` | Lọc tệp khách đã lâu không mua để remarketing. |
+
+::: details 📸 Trực quan: Phân khúc khách hàng VIP
+![Marketing VIP Segmentation](../images/Screenshot/IMG_1524.png)
+*AI thay bạn tính toán LTV và lọc danh sách khách hàng tiềm năng nhất cho chiến dịch mới.*
+:::
+
+| Bạn muốn... | AI sẽ thực hiện | Giá trị mang lại |
+|:--- |:--- |:--- |
 | **Tối ưu lợi nhuận** | `promotion_health`, `pricing_anomaly_scan` | Chặn đứng các mã KM bị lỗi, chồng chéo hoặc gây lỗ vốn. |
 | **Đón đầu xu hướng** | `sale_period_stock_forecast` | Biết món nào sắp "Hot" để chuẩn bị content và chạy Ads. |
 | **Cứu đơn hàng** | `find_orders_needing_attention` | Phát hiện khách đặt nhưng chưa thanh toán để remarketing ngay. |
